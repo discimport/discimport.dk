@@ -8,10 +8,11 @@
 	<!-- subversion settings -->
 	<property name="svnant.dir" value="C:\Program Files\eclipse\plugins\svnant-1.1.0-RC2\lib\"/>
 
-	<property name="svn.projecturl" value="http://svn.intraface.dk/frisbeebutik/trunk"/>
+	<property name="svn.projecturl" value="http://svn.intraface.dk/campsommer/trunk"/>
 	<property name="svn.username" value="lsolesen"/>
 	<property name="svn.password" value="klani"/>
 	<property name="svn.revision" value="HEAD"/>
+	<property name="svn.javahl" value="true"/>
 
 	<!-- setting up subversion -->
 	<path id="svnant.classpath">
@@ -27,7 +28,8 @@
 	</target>
 
 	<target name="svnExport">
-		<svn javahl="${javahl}" username="${svn.user}" password="${svn.password}">
+
+		<svn javahl="${svn.javahl}" username="${svn.user}" password="${svn.password}">
 			<export revision="HEAD" srcUrl="${svn.projecturl}" destPath="${project.build.root}" />
 		</svn>
 	</target>
