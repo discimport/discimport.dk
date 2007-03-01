@@ -6,18 +6,22 @@
  */
 
 require 'include_webshop.php';
+require 'Savant3.php';
+require 'XML/RPC2/Client.php';
 
+$tpl = new Savant3();
+$tpl->addPath('template', PATH_TEMPLATE);
+$tpl->assign('title', 'Discimport.dk');
+$tpl->assign('link', 'http://www.frisbeebutik.dk/');
+$tpl->assign('language', 'da');
+$tpl->assign('description', 'Denne feed giver dig de nyeste produkter fra Discimport.dk.');
 
-$tpl = & new CachedTemplate(PATH_TEMPLATE, PATH_CACHE, md5($_SERVER['REQUEST_URI'] . 'rss produkter'), 3600);
-if(!($tpl->is_cached())) {
+$options = array(
+    'prefix' => 'products.'
+);
 
-	$tpl->set('title', 'Discimport.dk');
-	$tpl->set('link', 'http://www.frisbeebutik.dk/');
-	$tpl->set('language', 'da');
-	$tpl->set('description', 'Denne feed giver dig de nyeste produkter fra Discimport.dk.');
-
-	$client = new WebshopClient(array('private_key' => INTRAFACE_PRIVATE_KEY), false);
-	$products = $client->getProducts(array('area' => 'rss', 'sorting' => 'date', 'limit' => 50));
+$client = XML_RPC2_Client::create('http://www.intraface.dk/xmlrpc/webshop/server2.php', $options);
+$products = $client->getList($credentials, array('area' => 'rss', 'sorting' => 'date', 'limit' => 50));
 
 	$i = 0;
 
@@ -32,10 +36,10 @@ if(!($tpl->is_cached())) {
 		$i++;
 	}
 
-	$tpl->set('items', $item);
+	$tpl->assign('items', $item);
 
 
-}
+
 //header('Content-Type: application/xml; charset=ISO-8859-1');
 echo $tpl->fetch('rss2.0-tpl.php');
 ?>

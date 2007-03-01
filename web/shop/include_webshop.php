@@ -9,12 +9,11 @@
  */
 
 require 'Config.php';
+require 'config.local.php';
 
 $config = new Config();
 $root = $config->parseConfig('config.local.php', 'phpconstants', array('name' => 'config'));
 $settings = $root->toArray();
-
-require 'settings.php';
 
 ob_start('ob_gzhandler');
 

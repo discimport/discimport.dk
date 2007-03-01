@@ -36,13 +36,10 @@ $html = '';
 $list = new Savant3();
 $list->setPath('template', PATH_TEMPLATE);
 
-#
-# NYHEDER
-#
+
 $search['keywords'] = array(265);
 $products = $client->getList($credentials, $search);
 
-# henter produkterne
 $products = $products['products'];
 
 if (count($products) > 0) {
@@ -53,18 +50,12 @@ if (count($products) > 0) {
 	$html .= $list->fetch('products-feature-tpl.php');
 }
 
-#
-# TILBUD
-#
-
 $search['keywords'] = array(266);
 $products = $client->getList($credentials, $search);
 
-# henter produkterne
 $products = $products['products'];
 
 if (count($products) > 0) {
-	# viser produkterne
 	$list->assign('headline', 'Tilbud');
 	$list->assign('products', $products);
 	$list->assign('no_results_msg', $err_msg);
@@ -72,7 +63,6 @@ if (count($products) > 0) {
 }
 
 
-# viser html på frisbeebutik.dk
 $tpl = new Savant3();
 $tpl->setEscape('htmlspecialchars');
 $tpl->addPath('template', PATH_TEMPLATE);
@@ -83,5 +73,4 @@ $tpl->assign('keywords', '');
 $tpl->assign('content_main', '<h1>Nyheder og tilbud</h1>' . $html);
 
 $tpl->display('main-tpl.php');
-
 ?>

@@ -2,9 +2,12 @@
 require '../include_webshop.php';
 require 'HTML/QuickForm.php';
 
-// det kan være nødvendigt at utf-8 decode og encode data. Vi skal have
-// indarbejdet det ordentligt snart
-$client = new WebshopClient(array('private_key' => INTRAFACE_PRIVATE_KEY), false);
+$options = array(
+    'prefix' => 'basket.'
+);
+
+$basket_client = XML_RPC2_Client::create('http://www.intraface.dk/xmlrpc/webshop/server2.php', $options);
+
 
 $form = new HTML_QuickForm();
 
@@ -30,23 +33,24 @@ $form->addRule('city', 'Skriv venligst din by', 'required', null);
 $form->addRule('email', 'Skriv venligst din e-mail', 'required', null);
 $form->addRule('handelsbetingelser', 'Du skal acceptere handelsbetingelserne', 'required', null);
 
-$main = new Template(PATH_TEMPLATE);
+$main = new Savant3();
+$main->addPath('template', PATH_TEMPLATE);
 $main->set('title', 'Bestil');
 $main->set('description', '');
 $main->set('keywords', '');
 
 if ($form->validate()) {
 	$values = array_map('utf8_encode', $_POST);
-	if ($client->placeOrder($values)) {
+	if ($client->placeOrder($credentials, $values)) {
 		header('Location: confirm.php');
 		exit;
 	}
 	else {
-		$main->set('content_main', 'Bestillingen blev ikke afsendt. Du bliver nødt til at ringe til os, for der er åbenbart problemer med butikken.');
+		$main->assign('content_main', 'Bestillingen blev ikke afsendt. Du bliver nødt til at ringe til os, for der er åbenbart problemer med butikken.');
 	}
 }
 else {
-	$main->set('content_main', '<h1>Adresseoplysninger</h1><p>Trin 2 af 3</p>' . $form->toHtml());
+	$main->assign('content_main', '<h1>Adresseoplysninger</h1><p>Trin 2 af 3</p>' . $form->toHtml());
 }
 
 echo $main->fetch('main-tpl.php');

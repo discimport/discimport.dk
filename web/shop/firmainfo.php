@@ -1,12 +1,13 @@
 <?php
 require 'include_webshop.php';
+require 'Savant3.php';
 
-# viser html på frisbeebutik.dk
-$main = new Template(PATH_TEMPLATE);
-$main->set('title', 'Discimport.dk: Firmaoplysninger');
-$main->set('description', '');
-$main->set('keywords', '');
-$main->set('content_main', '
+$main = new Savant3();
+$main->addPath('template', PATH_TEMPLATE);
+$main->assign('title', 'Discimport.dk: Firmaoplysninger');
+$main->assign('description', '');
+$main->assign('keywords', '');
+$main->assign('content_main', '
 <h1>Firmaoplysninger</h1>
 
 <p>Webshoppen ejes og drives af:</p>

@@ -1,28 +1,32 @@
 <?php
 require 'include_webshop.php';
+require 'XML/RPC2/Client.php';
+require 'Savant3.php';
 
-$client = new WebshopClient(array('private_key' => INTRAFACE_PRIVATE_KEY), false);
+$options = array(
+    'prefix' => 'basket.'
+);
+
+$basket_client = XML_RPC2_Client::create('http://www.intraface.dk/xmlrpc/webshop/server2.php', $options);
 
 if (isset($_GET['add']) AND is_numeric($_GET['add'])) {
-	$client->addBasket($_GET['add']);
+	$basket_client->add($credentials, intval($_GET['add']));
 }
 
-# settings til siden
+// settings
 $porto_produkt_id = 6125;
 $rabat_produkt_id = 6102;
 $rabat_procent = 0.15;
 
-//$client = new WebshopClient(false);
-
 if(!empty($_POST['update']) AND is_array($_POST['quantity'])) {
   foreach($_POST['quantity'] as $key => $antal) {
-		if (!$client->changeBasket($key, $antal)) {
+		if (!$basket_client->change($credentials, $key, $antal)) {
 			$error[$key] = 'Så mange er der ikke på lager af dette produkt';
 		}
   }
 }
 
-$basket = $client->getBasket();
+$basket = $basket_client->get($credentials);
 
 // lægge porto til:
 $weight = $basket['weight'] + 200;
@@ -40,45 +44,41 @@ else {
 	$porto_pris = 60;
 }
 
-$client->changeBasket($porto_produkt_id, $porto_pris);
+$basket_client->change($credentials, $porto_produkt_id, $porto_pris);
 
 // totale pris
 $total = $basket['price_total'];
 
 // hvis totalen ikke er højere end portoen skal portoen slettes
 if ($total == $porto_pris) {
-	$client->changeBasket($porto_produkt_id, 0);
+	$basket_client->change($credentials, $porto_produkt_id, 0);
 }
 
 // her er en lille fejl, fordi den opdaterer sig selv ifølge den nye ændrede pris
 if ($total > (1000 + $porto_pris)) {
-	$client->changeBasket($rabat_produkt_id, round($total * $rabat_procent));
+	$basket_client->change($credentials, $rabat_produkt_id, round($total * $rabat_procent));
 }
 else {
-	$client->changeBasket($rabat_produkt_id, 0);
+	$basket_client->change($credentials, $rabat_produkt_id, 0);
 }
 
+// basket
+$basket_tpl = new Savant3();
+$basket_tpl->addPath('template', PATH_TEMPLATE);
+$basket_tpl->assign('items', $basket['items']);
+$basket_tpl->assign('error', $error);
+$basket_tpl->assign('total_price', $basket['price_total']);
+$basket_tpl->assign('porto_produkt_id', $porto_produkt_id);
+$basket_tpl->assign('rabat_produkt_id', $rabat_produkt_id);
+$basket_tpl->assign('weight', $weight);
 
-# viser produkterne
-# der skal laves sådan at den ikke automatisk viser alle produkterne på en lang liste
-$basket_tpl = new Template(PATH_TEMPLATE);
-$basket_tpl->set('items', $basket['items']);
-$basket_tpl->set('error', $error);
-$basket_tpl->set('total_price', $basket['price_total']);
-$basket_tpl->set('porto_produkt_id', $porto_produkt_id);
-$basket_tpl->set('rabat_produkt_id', $rabat_produkt_id);
-$basket_tpl->set('weight', $weight);
-
-# her kunne selve produkterne måske vises på selve discimport.dk?
-
-# viser html på frisbeebutik.dk
-$main = new Template(PATH_TEMPLATE);
-$main->set('title', 'Indkøbskurv');
-$main->set('description', '');
-$main->set('keywords', '');
-$main->set('content_main', $basket_tpl->fetch('basket-tpl.php'));
+// template
+$main = new Savant3();
+$main->addPath('template', PATH_TEMPLATE);
+$main->assign('title', 'Indkøbskurv');
+$main->assign('description', '');
+$main->assign('keywords', '');
+$main->assign('content_main', $basket_tpl->fetch('basket-tpl.php'));
 
 echo $main->fetch('main-tpl.php');
-
-echo $basket['timer'];
 ?>

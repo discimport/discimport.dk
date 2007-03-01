@@ -1,21 +1,16 @@
 <?php
 /**
- * Produkter
+ * Products
  *
- * Denne side skal vise produkter til webshoppen
- *
- * Oversigten skal opfylde følgende kriterier
- * - produkter der ikke er på lager, skal vises som IKKE PÅ LAGER
- *
- * Der skal vises tilfældige produkter på forsiden der er på lager - og så
- * tilbudsvarer
- *
+ * @package Webshop
  * @author	Lars Olesen <lars@legestue.net>
+ * @since   0.1.0
+ * @version @package-version@
  */
 
 class Webshop_HTML_Parser {
 
-	static function parsePaging($paging_array, $link = '', $this_page) {
+	static function parsePaging($paging_array, $link = '', $this_page = '') {
 		$output = '';
 		$j = 1;
 		if (empty($link)) {
@@ -44,14 +39,18 @@ class Webshop_HTML_Parser {
 
 }
 
+require 'include_webshop.php';
+require 'Savant3.php';
+require 'XML/RPC2/Client.php';
 
-require('../include_webshop.php');
+$options = array(
+    'prefix' => 'products.'
+);
 
-# åbner webshoppen
-$client = new WebshopClient(array('private_key' => INTRAFACE_PRIVATE_KEY), false);
+$client = XML_RPC2_Client::create('http://www.intraface.dk/xmlrpc/webshop/server2.php', $options);
 
-#tpl
-$list = new Template(PATH_TEMPLATE);
+$list = new Savant3();
+$list->addPath('template', PATH_TEMPLATE);
 
 
 $search['area'] = 'webshop';
@@ -59,37 +58,35 @@ $search['use_paging'] = 'true';
 
 if (array_key_exists('start', $_GET)) {
 	$search['offset'] = (int)$_GET['start'];
-	$products = $client->getProducts($search);
+	$products = $client->getList($credentials, $search);
 }
 elseif (!empty($_GET['q']) OR !empty($_GET['keyword'])) {
 	if (!empty($_GET['q'])) $search['search'] = utf8_encode($_GET['q']);
 	if (!empty($_GET['keyword'])) $search['keywords'] = $_GET['keyword'];
 
-	$products = $client->getProducts($search);
+	$products = $client->getList($credentials, $search);
 	$err_msg = 'Der var ikke nogen produkter med den pågældende søgning';
-	$list->set('headline', 'Søgning: ' . htmlspecialchars($_GET['q']));
+	$list->assign('headline', 'Søgning: ' . htmlspecialchars($_GET['q']));
 }
 else {
-	//$products = $client->getProductsByKeywords(array(265,266));
 	$search['search'] = '';
-	$products = $client->getProducts($search);
-	$list->set('headline', 'Alle produkter');
+	$products = $client->getList($credentials, $search);
+	$list->assign('headline', 'Alle produkter');
 }
 
 $paging = $products['paging'];
 $products = $products['products'];
 
-# viser produkterne
-$list->set('products', $products);
-$list->set('no_results_msg', $err_msg);
-$list->set('paging', Webshop_HTML_Parser::parsePaging($paging));
+$list->assign('products', $products);
+$list->assign('no_results_msg', $err_msg);
+$list->assign('paging', Webshop_HTML_Parser::parsePaging($paging));
 
-# viser html på frisbeebutik.dk
-$main = new Template(PATH_TEMPLATE);
-$main->set('title', 'Discimport.dk - ' . $_GET['q']);
-$main->set('description', '');
-$main->set('keywords', '');
-$main->set('content_main', $list->fetch('products-tpl.php'));
+$main = new Savant3();
+$main->addPath('template', PATH_TEMPLATE);
+$main->assign('title', 'Discimport.dk - ' . htmlspecialchars($_GET['q']));
+$main->assign('description', '');
+$main->assign('keywords', '');
+$main->assign('content_main', $list->fetch('products-tpl.php'));
 
 echo $main->fetch('main-tpl.php');
 ?>

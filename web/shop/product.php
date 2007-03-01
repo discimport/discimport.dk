@@ -10,28 +10,30 @@ if (empty($_GET['id']) OR !is_numeric($_GET['id'])) {
 }
 
 require 'include_webshop.php';
+require 'Savant3.php';
+require 'XML/RPC2/Client.php';
 
-$client = new WebshopClient(array('private_key' => INTRAFACE_PRIVATE_KEY), false);
+$options = array(
+    'prefix' => 'products.'
+);
 
-$product = $client->getProduct((int)$_GET['id']);
-//print_r($product);
-# viser produkterne
-# der skal laves sådan at den ikke automatisk viser alle produkterne på en lang liste
-$product_tpl = new Template(PATH_TEMPLATE);
-$product_tpl->set('product', $product);
+$client = XML_RPC2_Client::create('http://www.intraface.dk/xmlrpc/webshop/server2.php', $options);
 
-# hvad mon den skal der?
-$product_tpl->set('client', $client);
-$product_tpl->set('related_products', $client->getRelatedProducts((int)$_GET['id']));
 
-# her kunne selve produkterne måske vises på selve discimport.dk?
+$product = $client->getProduct($credentials, (int)$_GET['id']);
 
-# viser html på frisbeebutik.dk
-$main = new Template(PATH_TEMPLATE);
-$main->set('title', $product['name']);
-$main->set('description', $product['description']);
-$main->set('keywords', '');
-$main->set('content_main', $product_tpl->fetch('product-tpl.php'));
+$product_tpl = new Savant3();
+$product_tpl->addPath('template', PATH_TEMPLATE);
+$product_tpl->assign('product', $product);
+$product_tpl->assign('client', $client);
+$product_tpl->assign('related_products', $client->getRelatedProducts($credentials, (int)$_GET['id']));
+
+$main = new Savant3();
+$main->addPath('template', PATH_TEMPLATE);
+$main->assign('title', $product['name']);
+$main->assign('description', $product['description']);
+$main->assign('keywords', '');
+$main->assign('content_main', $product_tpl->fetch('product-tpl.php'));
 
 echo $main->fetch('main-tpl.php');
 ?>
