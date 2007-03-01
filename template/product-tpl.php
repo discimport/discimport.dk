@@ -1,3 +1,7 @@
+<?php
+$product = $this->product;
+?>
+
 <div class="vare">
 	<?php if (array_key_exists(0, $product['pictures'])) { ?>
 	<img src="<?php echo $product['pictures'][0]['medium']['file_uri']; ?>" alt="<?php $product['name'] ?>" width="<?php echo $product['pictures'][0]['medium']['width']; ?>" height="<?php echo $product['pictures'][0]['medium']['height']; ?>" />
@@ -10,7 +14,7 @@
 	<?php else: ?>
 		<p style="color: red">Produktet er udsolgt</p>
 	<?php endif; ?>
-</div>  
+</div>
 
 
 <?php if (is_array($related_products) AND count($related_products) > 0): ?>

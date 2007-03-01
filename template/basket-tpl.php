@@ -1,10 +1,10 @@
 <h1>Indkøbskurv</h1>
 
-<?php if (is_array($items) AND count($items) > 0): ?>
+<?php if (is_array($this->items) AND count($this->items) > 0): ?>
 
 <p>Trin 1 af 3</p>
 
-<?php echo implode($error, ', ') ?>
+<?php if (is_array($this->error)) echo implode($this->error, ', ') ?>
 
 <form action="<?php echo basename($_SERVER['PHP_SELF']); ?>" method="post">
 	<table id="kurv">
@@ -26,7 +26,7 @@
 		</tfoot>
 
 		<tbody>
-		<?php foreach($items AS $item): ?>
+		<?php foreach($this->items AS $item): ?>
 			<tr>
 				<td>
 					<?php if (array_key_exists(0, $item['pictures'])): ?>
