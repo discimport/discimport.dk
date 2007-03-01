@@ -9,6 +9,8 @@
  */
 
 require 'include_webshop.php';
+require 'Savant3.php';
+require 'XML/RPC2/Client.php';
 
 $tpl = new Savant3();
 $tpl->addPath('template', PATH_TEMPLATE);
@@ -18,6 +20,13 @@ $tpl->assign('link', 'http://www.frisbeebutik.dk/');
 $tpl->assign('language', 'da');
 $tpl->assign('description', 'Denne feed giver dig de nyeste produkter fra Discimport.dk.');
 
+$options = array(
+    'prefix' => 'products.'
+);
+
+$client = XML_RPC2_Client::create('http://www.intraface.dk/xmlrpc/webshop/server2.php', $options);
+
+$products = $client->getList($credentials, '');
 
 $i = 0;
 foreach ($products['products'] AS $product) {
