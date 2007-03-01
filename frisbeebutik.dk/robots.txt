@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: *PHPSESSID*
-Disallow: /shop/basket.php
-Disallow: /shop/confirm.php
-Disallow: /shop/order.php
