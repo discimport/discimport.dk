@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.5.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.0     http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Webshop</name>
+ <uri>http://localhost/pear test/</uri>
+ <summary>Provides necessary files for the Intraface Webshop</summary>
+ <description>Needs to be filled in</description>
+ <lead>
+  <name>Lars Olesen</name>
+  <user>lars</user>
+  <email>lars@legestue.net</email>
+  <active>yes</active>
+ </lead>
+ <date>2007-03-01</date>
+ <time>05:03:03</time>
+ <version>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD license</license>
+ <notes>Needs to be filled in</notes>
+ <contents>
+  <dir baseinstalldir="Intraface/Webshop" name="/">
+   <dir name="frisbeebutik.dk">
+    <dir name="css">
+     <file name="layout.css" role="data" />
+    </dir> <!-- /frisbeebutik.dk/css -->
+    <dir name="error">
+     <file name="error.php" role="php" />
+    </dir> <!-- /frisbeebutik.dk/error -->
+    <dir name="gfx">
+     <dir name="images">
+      <file name="ching.jpg" role="data" />
+      <file name="collector.jpg" role="data" />
+      <file name="discraft.jpg" role="data" />
+      <file name="discwing.jpg" role="data" />
+      <file name="driver.jpg" role="data" />
+      <file name="innova.jpg" role="data" />
+      <file name="kurve.jpg" role="data" />
+      <file name="praemier.jpg" role="data" />
+      <file name="putter.jpg" role="data" />
+      <file name="rekreation.jpg" role="data" />
+      <file name="ultimate.jpg" role="data" />
+     </dir> <!-- /frisbeebutik.dk/gfx/images -->
+    </dir> <!-- /frisbeebutik.dk/gfx -->
+    <dir name="mobil">
+     <file name="index.php" role="php" />
+     <file name="vis_ordre.php" role="php" />
+    </dir> <!-- /frisbeebutik.dk/mobil -->
+    <dir name="rss">
+     <file name="produkter.php" role="php" />
+    </dir> <!-- /frisbeebutik.dk/rss -->
+    <dir name="shop">
+     <file name="basket.php" role="php" />
+     <file name="config.local.php" role="php" />
+     <file name="confirm.php" role="php" />
+     <file name="firmainfo.php" role="php" />
+     <file name="handelsbetingelser.php" role="php" />
+     <file name="help.php" role="php" />
+     <file name="include_webshop.php" role="php" />
+     <file name="index.php" role="php" />
+     <file name="order.php" role="php" />
+     <file name="product.php" role="php" />
+     <file name="products.php" role="php" />
+     <file name="rss.php" role="php" />
+     <file name="setup.php" role="php" />
+    </dir> <!-- /frisbeebutik.dk/shop -->
+    <file name="index.php" role="php" />
+    <file name="robots.txt" role="data" />
+    <file name="sitemap_google.php" role="php" />
+   </dir> <!-- /frisbeebutik.dk -->
+   <dir name="frisbeebutik_include">
+    <file name="errorhandler.php" role="php" />
+    <file name="functions.php" role="php" />
+    <file name="settings.php" role="php" />
+    <file name="update_path.php" role="php" />
+   </dir> <!-- /frisbeebutik_include -->
+   <dir name="frisbeebutik_template">
+    <file name="basket-tpl.php" role="php" />
+    <file name="main-tpl.php" role="php" />
+    <file name="product-tpl.php" role="php" />
+    <file name="products-feature-tpl.php" role="php" />
+    <file name="products-tpl.php" role="php" />
+    <file name="rss2.0-tpl.php" role="php" />
+   </dir> <!-- /frisbeebutik_template -->
+   <dir name="reports">
+    <file name="index.html" role="doc" />
+    <file name="index.php" role="php" />
+   </dir> <!-- /reports -->
+   <dir name="test">
+    <dir name="functional">
+     <file name="Login.html" role="doc" />
+     <file name="testSuite.html" role="doc" />
+    </dir> <!-- /test/functional -->
+   </dir> <!-- /test -->
+   <file name="build.xml" role="data" />
+   <file name="project.properties" role="data" />
+   <file name="selenium.properties" role="data" />
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.1.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.5.0</min>
+   </pearinstaller>
+   <package>
+    <name>Savant3</name>
+    <channel>savant.pearified.com</channel>
+    <min>3.0.0</min>
+   </package>
+   <package>
+    <name>HTML_QuickForm</name>
+    <channel>pear.php.net</channel>
+    <min>3.2.7</min>
+   </package>
+   <package>
+    <name>XML_RPC2</name>
+    <channel>pear.php.net</channel>
+    <min>1.0.0</min>
+   </package>
+   <package>
+    <name>Config</name>
+    <channel>pear.php.net</channel>
+    <min>1.10.9</min>
+   </package>
+   <package>
+    <name>Cache_Lite</name>
+    <channel>pear.php.net</channel>
+    <min>1.7.2</min>
+   </package>
+   <extension>
+    <name>curl</name>
+   </extension>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2007-03-01</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD license</license>
+   <notes>Needs to be filled in</notes>
+  </release>
+ </changelog>
+</package>

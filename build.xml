@@ -1,41 +1,66 @@
-<project name="Frisbeebutik.dk">
+<project name="Frisbeebutik.dk" default="all" basedir=".">
     <description>
 		-
     </description>
 
-	<property name="project.build.root" value="c:\checkout\frisbeebutik.dk"/>
+	<property file="${basedir}/project.properties"/>
 
-	<!-- subversion settings -->
-	<property name="svnant.dir" value="C:\Program Files\eclipse\plugins\svnant-1.1.0-RC2\lib\"/>
+	<property name="acceptance.test.lib.dir" value="${functional.test.dir}" />
+	<property name="browser" value="*iexplore" />
+	<property name="base.url" value="http://${web.host.name}:${web.port}" />
+	<property name="acceptance.test.list.dir" value="${functional.test.dir}" />
+	<property name="acceptance.test.report.dir" value="${functional.test.dir}" />
 
-	<property name="svn.projecturl" value="http://svn.intraface.dk/campsommer/trunk"/>
-	<property name="svn.username" value="lsolesen"/>
-	<property name="svn.password" value="klani"/>
-	<property name="svn.revision" value="HEAD"/>
-	<property name="svn.javahl" value="true"/>
+	<taskdef name="ftp" classname="org.apache.tools.ant.taskdefs.optional.net.FTP"/>
 
-	<!-- setting up subversion -->
 	<path id="svnant.classpath">
 		<fileset dir="${svnant.dir}">
 			<include name="*.jar" />
 		</fileset>
 	</path>
-
 	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath" />
 
-	<target name="setUp">
-		<delete dir="${project.build.root}\"/>
+	<target name="all" depends="clean">
+		<antcall target="export-source-from-svn"/>
+		<antcall target="run-selenium-tests"/>
+		<antcall target="stop-server"/>
 	</target>
 
-	<target name="svnExport">
-
-		<svn javahl="${svn.javahl}" username="${svn.user}" password="${svn.password}">
-			<export revision="HEAD" srcUrl="${svn.projecturl}" destPath="${project.build.root}" />
-		</svn>
+	<target name="clean">
 	</target>
 
-	<target name="tearDown">
-		<delete dir="${project.build.root}\"/>
+	<target name="export-source-from-svn">
+	</target>
+
+	<target name="upload-files-to-staging-server">
+		<ftp verbose="yes" passive="no" depends="yes"
+			remotedir="${ftp.remote.directory}" server="${ftp.server}"
+			userid="${ftp.user}" password="${ftp.password}">
+			<fileset dir="${local.directory}" />
+		</ftp>
+	</target>
+
+	<target name="run-selenium-tests">
+		<mkdir dir="${reports.dir}" />
+		<java jar="${acceptance.test.lib.dir}/selenium-server.jar" fork="true" failonerror="false"
+outputproperty="testoutput" errorproperty="testerror" resultproperty="testresult">
+			<arg line="-htmlSuite &quot;${browser}&quot;"/>
+			<arg line="&quot;${base.url}&quot;"/>
+			<arg line="&quot;${acceptance.test.list.dir}/${test.suite}&quot;"/>
+			<arg line="&quot;${reports.dir}/index.html&quot;"/>
+			<arg line="-timeout ${timeout}"/>
+			<arg line="-port ${selenium.rc.port}"/>
+		</java>
+		<echo message="testresult = ${testresult}" />
+		<!--
+    	<echo message="testerror  = ${testerror}" />
+    	<echo message="testoutput = ${testoutput}" />
+    	-->
+	</target>
+
+	<target name="stop-server">
+		<get taskname="selenium-shutdown" src="http://${web.host.name}:${selenium.rc.port}/selenium-server/driver/?cmd=shutDown" dest="result.txt" ignoreerrors="true" />
+		<echo taskname="selenium-shutdown" message="Errors during shutdown are expected" />
 	</target>
 
 </project>
