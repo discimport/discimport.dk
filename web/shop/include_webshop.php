@@ -12,7 +12,7 @@ require 'Config.php';
 require 'config.local.php';
 
 $config = new Config();
-$root = $config->parseConfig('config.local.php', 'phpconstants', array('name' => 'config'));
+$root = $config->parseConfig(dirname(__FILE__) . '/config.local.php', 'phpconstants', array('name' => 'config'));
 $settings = $root->toArray();
 
 ob_start('ob_gzhandler');

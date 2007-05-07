@@ -23,11 +23,11 @@
 		<td  nowrap="nowrap">Udsolgt</td>
 		<?php endif; ?>
 	</tr>
-<?php	endforeach; ?>
+<?php endforeach; ?>
 
 </table>
 
-<p style="text-align: right;"><?php echo $paging; ?></p>
+<p style="text-align: right;"><?php echo $this->paging; ?></p>
 
 <?php else: ?>
 

@@ -3,7 +3,7 @@ $product = $this->product;
 ?>
 
 <div class="vare">
-	<?php if (array_key_exists(0, $product['pictures'])) { ?>
+	<?php if (is_array($product['pictures']) AND array_key_exists(0, $product['pictures'])) { ?>
 	<img src="<?php echo $product['pictures'][0]['medium']['file_uri']; ?>" alt="<?php $product['name'] ?>" width="<?php echo $product['pictures'][0]['medium']['width']; ?>" height="<?php echo $product['pictures'][0]['medium']['height']; ?>" />
 	<?php } ?>
 	<h1><?php echo $product['name']; ?></h1>

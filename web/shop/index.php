@@ -9,28 +9,10 @@
  */
 
 require 'include_webshop.php';
-require 'XML/RPC2/Client.php';
+require 'IntrafacePublic/Shop/XMLRPC/Client.php';
 require 'Savant3.php';
 
-$options = array(
-    'prefix' => 'products.'
-);
-
-$client = XML_RPC2_Client::create('http://www.intraface.dk/xmlrpc/webshop/server2.php', $options);
-
-/*
-try {
-    $result = $client->getList($credentials, '');
-    print_r($result);
-}
-catch (XML_RPC2_FaultException $e) {
-	die('Exception #' . $e->getFaultString());
-}
-catch (Exception $e) {
-	die('Exception : ' . $e->getMessage());
-}
-*/
-
+$client = new IntrafacePublic_Shop_XMLRPC_Client($credentials);
 $html = '';
 
 $list = new Savant3();
@@ -38,7 +20,7 @@ $list->setPath('template', PATH_TEMPLATE);
 
 
 $search['keywords'] = array(265);
-$products = $client->getList($credentials, $search);
+$products = $client->getProducts($credentials, $search);
 
 $products = $products['products'];
 
@@ -51,7 +33,7 @@ if (count($products) > 0) {
 }
 
 $search['keywords'] = array(266);
-$products = $client->getList($credentials, $search);
+$products = $client->getProducts($credentials, $search);
 
 $products = $products['products'];
 

@@ -11,15 +11,9 @@ if (empty($_GET['id']) OR !is_numeric($_GET['id'])) {
 
 require 'include_webshop.php';
 require 'Savant3.php';
-require 'XML/RPC2/Client.php';
+require 'IntrafacePublic/Shop/XMLRPC/Client.php';
 
-$options = array(
-    'prefix' => 'products.'
-);
-
-$client = XML_RPC2_Client::create('http://www.intraface.dk/xmlrpc/webshop/server2.php', $options);
-
-
+$client = new IntrafacePublic_Shop_XMLRPC_Client($credentials);
 $product = $client->getProduct($credentials, (int)$_GET['id']);
 
 $product_tpl = new Savant3();

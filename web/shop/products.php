@@ -41,13 +41,9 @@ class Webshop_HTML_Parser {
 
 require 'include_webshop.php';
 require 'Savant3.php';
-require 'XML/RPC2/Client.php';
+require 'IntrafacePublic/Shop/XMLRPC/Client.php';
 
-$options = array(
-    'prefix' => 'products.'
-);
-
-$client = XML_RPC2_Client::create('http://www.intraface.dk/xmlrpc/webshop/server2.php', $options);
+$client = new IntrafacePublic_Shop_XMLRPC_Client($credentials);
 
 $list = new Savant3();
 $list->addPath('template', PATH_TEMPLATE);
@@ -58,19 +54,19 @@ $search['use_paging'] = 'true';
 
 if (array_key_exists('start', $_GET)) {
 	$search['offset'] = (int)$_GET['start'];
-	$products = $client->getList($credentials, $search);
+	$products = $client->getProducts($credentials, $search);
 }
 elseif (!empty($_GET['q']) OR !empty($_GET['keyword'])) {
 	if (!empty($_GET['q'])) $search['search'] = utf8_encode($_GET['q']);
 	if (!empty($_GET['keyword'])) $search['keywords'] = $_GET['keyword'];
 
-	$products = $client->getList($credentials, $search);
+	$products = $client->getProducts($credentials, $search);
 	$err_msg = 'Der var ikke nogen produkter med den pågældende søgning';
 	$list->assign('headline', 'Søgning: ' . htmlspecialchars($_GET['q']));
 }
 else {
 	$search['search'] = '';
-	$products = $client->getList($credentials, $search);
+	$products = $client->getProducts($credentials, $search);
 	$list->assign('headline', 'Alle produkter');
 }
 
