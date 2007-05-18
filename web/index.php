@@ -10,26 +10,23 @@
 
 require 'include_webshop.php';
 require 'IntrafacePublic/Shop/XMLRPC/Client.php';
-require 'Savant3.php';
+require 'Frisbeebutik/Frontend.php';
 
 $client = new IntrafacePublic_Shop_XMLRPC_Client($credentials);
 $html = '';
 
-$list = new Savant3();
-$list->setPath('template', PATH_TEMPLATE);
-
+$list = new Frisbeebutik_Frontend;
 
 $search['keywords'] = array(265);
 $products = $client->getProducts($credentials, $search);
-
 $products = $products['products'];
 
 if (count($products) > 0) {
-	# viser produkterne
-	$list->assign('headline', 'Nyheder');
-	$list->assign('products', $products);
-	$list->assign('no_results_msg', $err_msg);
-	$html .= $list->fetch('products-feature-tpl.php');
+    # viser produkterne
+    $list->assign('headline', 'Nyheder');
+    $list->assign('products', $products);
+    $list->assign('no_results_msg', $err_msg);
+    $html .= $list->fetch('products-feature-tpl.php');
 }
 
 $search['keywords'] = array(266);
@@ -38,17 +35,13 @@ $products = $client->getProducts($credentials, $search);
 $products = $products['products'];
 
 if (count($products) > 0) {
-	$list->assign('headline', 'Tilbud');
-	$list->assign('products', $products);
-	$list->assign('no_results_msg', $err_msg);
-	$html .= $list->fetch('products-feature-tpl.php');
+    $list->assign('headline', 'Tilbud');
+    $list->assign('products', $products);
+    $list->assign('no_results_msg', $err_msg);
+    $html .= $list->fetch('products-feature-tpl.php');
 }
 
-
-$tpl = new Savant3();
-$tpl->setEscape('htmlspecialchars');
-$tpl->addPath('template', PATH_TEMPLATE);
-
+$tpl = new Frisbeebutik_Frontend;
 $tpl->assign('title', 'Discimports butik');
 $tpl->assign('description', '');
 $tpl->assign('keywords', '');
