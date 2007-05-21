@@ -1,9 +1,8 @@
 <?php
-require 'include_webshop.php';
-require 'Savant3.php';
+require 'include_shop.php';
+require 'Frisbeebutik/Frontend.php';
 
-$main = new Savant3();
-$main->addPath('template', PATH_TEMPLATE);
+$main = new Frisbeebutik_Frontend;
 $main->assign('title', 'Discimport.dk');
 $main->assign('description', '');
 $main->assign('keywords', '');
@@ -29,7 +28,7 @@ $main->assign('content_main', '
 <p>I vores webshop kan du betale med følgende betalingsmidler:</p>
 
 <ul>
-	<li>Bankoverførsel</li>
+    <li>Bankoverførsel</li>
 </ul>
 
 <!--

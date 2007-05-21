@@ -1,9 +1,8 @@
 <?php
-require 'include_webshop.php';
-require 'Savant3.php';
+require 'include_shop.php';
+require 'Frisbeebutik/Frontend.php';
 
-$main = new Savant3();
-$main->addPath('template', PATH_TEMPLATE);
+$main = new Frisbeebutik_Frontend();
 $main->assign('title', 'Indkøbskurv');
 $main->assign('description', '');
 $main->assign('keywords', '');
@@ -14,8 +13,8 @@ $main->assign('content_main', '
 <h4>Hvordan bestiller jeg varer?</h4>
 
 <ol>
-	<li>Find den ønskede vare.</li>
-	<li>Når varen er fundet, klikker du på Køb. Du har altid mulighed for at ændre antallet inde fra indkøbskurven. Du kan også fjerne varen ved at skrive nul.</li>
+    <li>Find den ønskede vare.</li>
+    <li>Når varen er fundet, klikker du på Køb. Du har altid mulighed for at ændre antallet inde fra indkøbskurven. Du kan også fjerne varen ved at skrive nul.</li>
     <li>Når din indkøbskurv ser ud, som du gerne vil have det, skal du gå til kassen.</li>
     <li>Ved kassen indtaster du adresseoplysninger og klikker køb. Alle felter skal udfyldes.    </li>
 </ol>

@@ -1,13 +1,11 @@
 <?php
-require '../include_webshop.php';
+require 'include_shop.php';
 require 'HTML/QuickForm.php';
+require 'IntrafacePublic/Shop/XMLRPC/Client.php';
+require 'Frisbeebutik/Frontend.php';
 
-$options = array(
-    'prefix' => 'basket.'
-);
-
-$basket_client = XML_RPC2_Client::create('http://www.intraface.dk/xmlrpc/webshop/server2.php', $options);
-
+$debug = false;
+$client = new IntrafacePublic_Shop_XMLRPC_Client($credentials, $debug, PATH_XMLRPC . 'shop/server3.php');
 
 $form = new HTML_QuickForm();
 
@@ -24,7 +22,7 @@ $form->addElement('text', 'phone', 'Telefon');
 $form->addElement('checkbox', 'handelsbetingelser', 'Accepterer du handelsbetingelserne?');
 $form->addElement('submit','send','Send');
 
-$form->applyFilter(_ALL_, 'trim');
+$form->applyFilter('__ALL__', 'trim');
 
 $form->addRule('name', 'Skriv venligst dit navn', 'required', null);
 $form->addRule('address', 'Skriv venligst din adresse', 'required', null);
@@ -33,26 +31,24 @@ $form->addRule('city', 'Skriv venligst din by', 'required', null);
 $form->addRule('email', 'Skriv venligst din e-mail', 'required', null);
 $form->addRule('handelsbetingelser', 'Du skal acceptere handelsbetingelserne', 'required', null);
 
-$main = new Savant3();
-$main->addPath('template', PATH_TEMPLATE);
-$main->set('title', 'Bestil');
-$main->set('description', '');
-$main->set('keywords', '');
+$main = new Frisbeebutik_Frontend;
+$main->assign('title', 'Bestil');
+$main->assign('description', '');
+$main->assign('keywords', '');
 
 if ($form->validate()) {
-	$values = array_map('utf8_encode', $_POST);
-	if ($client->placeOrder($credentials, $values)) {
-		header('Location: confirm.php');
-		exit;
-	}
-	else {
-		$main->assign('content_main', 'Bestillingen blev ikke afsendt. Du bliver nødt til at ringe til os, for der er åbenbart problemer med butikken.');
-	}
+    $values = $form->exportValues();
+    if ($client->placeOrder($values)) {
+        header('Location: confirm.php');
+        exit;
+    }
+    else {
+        $main->assign('content_main', 'Bestillingen blev ikke afsendt. Du bliver nødt til at ringe til os, for der er åbenbart problemer med butikken.');
+    }
 }
 else {
-	$main->assign('content_main', '<h1>Adresseoplysninger</h1><p>Trin 2 af 3</p>' . $form->toHtml());
+    $main->assign('content_main', '<h1>Adresseoplysninger</h1><p>Trin 2 af 3</p>' . $form->toHtml());
 }
 
-echo $main->fetch('main-tpl.php');
-
+$main->display('main-tpl.php');
 ?>

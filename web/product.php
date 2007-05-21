@@ -11,11 +11,12 @@ if (empty($_GET['id']) OR !is_numeric($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-require 'include_webshop.php';
+require 'include_shop.php';
 require 'Frisbeebutik/Frontend.php';
 require 'IntrafacePublic/Shop/XMLRPC/Client.php';
 
-$client = new IntrafacePublic_Shop_XMLRPC_Client($credentials);
+$debug = true;
+$client = new IntrafacePublic_Shop_XMLRPC_Client($credentials, $debug);
 $product = $client->getProduct($id);
 
 $product_tpl = new Frisbeebutik_Frontend;

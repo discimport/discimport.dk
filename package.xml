@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.5.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.5.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
- <name>Webshop</name>
- <uri>http://localhost/pear test/</uri>
+ <name>Frisbeebutik</name>
+ <uri>http://localhost</uri>
  <summary>Provides necessary files for the Intraface Webshop</summary>
  <description>Needs to be filled in</description>
  <lead>
@@ -13,130 +13,128 @@
   <email>lars@legestue.net</email>
   <active>yes</active>
  </lead>
- <date>2007-03-01</date>
- <time>23:31:07</time>
+ <date>2007-05-21</date>
+ <time>19:16:06</time>
  <version>
-  <release>0.3.1</release>
-  <api>0.3.1</api>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
  </version>
  <stability>
-  <release>beta</release>
-  <api>beta</api>
+  <release>alpha</release>
+  <api>alpha</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD license</license>
- <notes>Needs to be filled in</notes>
+ <notes>* initial release as PEAR package</notes>
  <contents>
-  <dir baseinstalldir="Intraface/Webshop" name="/">
-   <dir name="template">
-    <file name="basket-tpl.php" role="php">
+  <dir baseinstalldir="/" name="/">
+   <dir name="Frisbeebutik">
+    <dir name="templates">
+     <dir name="Savant3">
+      <file baseinstalldir="/" name="basket-tpl.php" role="php">
+       <tasks:replace from="@package-version@" to="version" type="package-info" />
+      </file>
+      <file baseinstalldir="/" name="main-tpl.php" role="php">
+       <tasks:replace from="@package-version@" to="version" type="package-info" />
+      </file>
+      <file baseinstalldir="/" name="product-tpl.php" role="php">
+       <tasks:replace from="@package-version@" to="version" type="package-info" />
+      </file>
+      <file baseinstalldir="/" name="products-feature-tpl.php" role="php">
+       <tasks:replace from="@package-version@" to="version" type="package-info" />
+      </file>
+      <file baseinstalldir="/" name="products-tpl.php" role="php">
+       <tasks:replace from="@package-version@" to="version" type="package-info" />
+      </file>
+      <file baseinstalldir="/" name="rss2.0-tpl.php" role="php">
+       <tasks:replace from="@package-version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /Frisbeebutik/templates/Savant3 -->
+    </dir> <!-- /Frisbeebutik/templates -->
+    <file baseinstalldir="/" name="Frontend.php" role="php">
      <tasks:replace from="@package-version@" to="version" type="package-info" />
     </file>
-    <file name="main-tpl.php" role="php">
-     <tasks:replace from="@package-version@" to="version" type="package-info" />
-    </file>
-    <file name="product-tpl.php" role="php">
-     <tasks:replace from="@package-version@" to="version" type="package-info" />
-    </file>
-    <file name="products-feature-tpl.php" role="php">
-     <tasks:replace from="@package-version@" to="version" type="package-info" />
-    </file>
-    <file name="products-tpl.php" role="php">
-     <tasks:replace from="@package-version@" to="version" type="package-info" />
-    </file>
-    <file name="rss2.0-tpl.php" role="php">
-     <tasks:replace from="@package-version@" to="version" type="package-info" />
-    </file>
-   </dir> <!-- /template -->
+   </dir> <!-- /Frisbeebutik -->
    <dir name="web">
-    <dir name="css">
-     <file name="layout.css" role="data">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-    </dir> <!-- /web/css -->
     <dir name="mobil">
-     <file name="index.php" role="php">
+     <file baseinstalldir="/" name="index.php" role="web">
       <tasks:replace from="@package-version@" to="version" type="package-info" />
      </file>
-     <file name="vis_ordre.php" role="php">
+     <file baseinstalldir="/" name="vis_ordre.php" role="web">
       <tasks:replace from="@package-version@" to="version" type="package-info" />
      </file>
     </dir> <!-- /web/mobil -->
-    <dir name="shop">
-     <file name="basket.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="config.example.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="config.local.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="confirm.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="firmainfo.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="handelsbetingelser.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="help.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="include_webshop.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="index.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="order.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="product.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="products.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-     <file name="rss_products.php" role="php">
-      <tasks:replace from="@package-version@" to="version" type="package-info" />
-     </file>
-    </dir> <!-- /web/shop -->
-    <file name="robots.txt" role="data">
+    <file baseinstalldir="/" name="basket.php" role="web">
      <tasks:replace from="@package-version@" to="version" type="package-info" />
     </file>
-    <file name="sitemap_google.php" role="php">
+    <file baseinstalldir="/" name="config.example.php" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="confirm.php" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="firmainfo.php" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="handelsbetingelser.php" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="help.php" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="include_shop.php" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="index.php" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="layout.css" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="order.php" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="product.php" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="products.php" role="web">
+     <tasks:replace from="@package-version@" to="version" type="package-info" />
+    </file>
+    <file baseinstalldir="/" name="rss_products.php" role="web">
      <tasks:replace from="@package-version@" to="version" type="package-info" />
     </file>
    </dir> <!-- /web -->
-   <file name="build.xml" role="data">
+   <file baseinstalldir="/" name="build.xml" role="data">
     <tasks:replace from="@package-version@" to="version" type="package-info" />
    </file>
-   <file name="project.properties" role="data">
+   <file baseinstalldir="/" name="frisbeebutik.php" role="php">
     <tasks:replace from="@package-version@" to="version" type="package-info" />
-   </file>
-   <file name="selenium.properties" role="data">
-    <tasks:replace from="@package-version@" to="version" type="package-info" />
-   </file>
-   <file name="setup.php" role="php">
-    <tasks:replace from="@package-version@" to="version" type="package-info" />
-    <tasks:replace from="@php_dir@" to="php_dir" type="pear-config" />
+    <tasks:replace from="@web-dir@" to="web_dir" type="pear-config" />
     <tasks:postinstallscript>
      <tasks:paramgroup>
       <tasks:id>setup</tasks:id>
-      <tasks:instructions>Settings</tasks:instructions>
       <tasks:param>
-       <tasks:name>webroot</tasks:name>
-       <tasks:prompt>Webroot</tasks:prompt>
+       <tasks:name>path_root</tasks:name>
+       <tasks:prompt>Root path</tasks:prompt>
        <tasks:type>string</tasks:type>
+       <tasks:default>/home/frisbeebutik/</tasks:default>
       </tasks:param>
       <tasks:param>
-       <tasks:name>intraface</tasks:name>
-       <tasks:prompt>Private Key</tasks:prompt>
+       <tasks:name>path_xmlrpc</tasks:name>
+       <tasks:prompt>Path to the xmlrpc-server</tasks:prompt>
        <tasks:type>string</tasks:type>
+       <tasks:default>http://www.intraface.dk/xmlrpc/</tasks:default>
+      </tasks:param>
+      <tasks:param>
+       <tasks:name>intraface_private_key</tasks:name>
+       <tasks:prompt>Private key to intraface</tasks:prompt>
+       <tasks:type>string</tasks:type>
+       <tasks:default />
       </tasks:param>
      </tasks:paramgroup>
     </tasks:postinstallscript>
+   </file>
+   <file baseinstalldir="/" name="TODO" role="data">
+    <tasks:replace from="@package-version@" to="version" type="package-info" />
    </file>
   </dir> <!-- / -->
  </contents>
@@ -173,12 +171,39 @@
     <channel>pear.php.net</channel>
     <min>1.7.2</min>
    </package>
+   <package>
+    <name>IntrafacePublic_Shop_Client</name>
+    <uri>http://svn.intraface.dk/intrafacepublic/IntrafacePublic/IntrafacePublic/Shop/XMLRPC/IntrafacePublic_Shop_XMLRPC-0.1.1</uri>
+   </package>
    <extension>
     <name>curl</name>
    </extension>
   </required>
  </dependencies>
- <phprelease />
+ <usesrole>
+  <role>web</role>
+  <package>Role_Web</package>
+  <channel>pearified.com</channel>
+ </usesrole>
+ <phprelease>
+  <filelist>
+   <install as="basket.php" name="web/basket.php" />
+   <install as="config.example.php" name="web/config.example.php" />
+   <install as="confirm.php" name="web/confirm.php" />
+   <install as="firmainfo.php" name="web/firmainfo.php" />
+   <install as="handelsbetingelser.php" name="web/handelsbetingelser.php" />
+   <install as="help.php" name="web/help.php" />
+   <install as="include_shop.php" name="web/include_shop.php" />
+   <install as="index.php" name="web/index.php" />
+   <install as="layout.css" name="web/layout.css" />
+   <install as="mobil/index.php" name="web/mobil/index.php" />
+   <install as="mobil/vis_ordre.php" name="web/mobil/vis_ordre.php" />
+   <install as="order.php" name="web/order.php" />
+   <install as="product.php" name="web/product.php" />
+   <install as="products.php" name="web/products.php" />
+   <install as="rss_products.php" name="web/rss_products.php" />
+  </filelist>
+ </phprelease>
  <changelog>
   <release>
    <version>
@@ -195,6 +220,19 @@
   </release>
   <release>
    <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2007-05-21</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD license</license>
+   <notes>* initial release as PEAR package</notes>
+  </release>
+  <release>
+   <version>
     <release>0.3.1</release>
     <api>0.3.1</api>
    </version>
@@ -202,7 +240,7 @@
     <release>beta</release>
     <api>beta</api>
    </stability>
-   <date>2007-03-01</date>
+   <date>2007-05-21</date>
    <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD license</license>
    <notes>Needs to be filled in</notes>
   </release>

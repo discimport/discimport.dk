@@ -2,15 +2,18 @@
 /**
  * Common operations for all pages
  *
- * @package Intraface Webshop
+ * @package Intraface_Shop_Frontend
  * @author  Lars Olesen <lars@legestue.net>
- * @since   0.1.0
  * @version @package-version@
  */
 
-error_reporting(E_ALL);
-
 require 'config.local.php';
+
+if (!defined('PATH_INCLUDE')) {
+    define('PATH_INCLUDE', get_include_path());
+}
+
+set_include_path(PATH_INCLUDE);
 
 if (session_id() == '') {
     session_start();

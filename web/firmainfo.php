@@ -1,9 +1,8 @@
 <?php
-require 'include_webshop.php';
-require 'Savant3.php';
+require 'include_shop.php';
+require 'Frisbeebutik/Frontend.php';
 
-$main = new Savant3();
-$main->addPath('template', PATH_TEMPLATE);
+$main = new Frisbeebutik_Frontend;
 $main->assign('title', 'Discimport.dk: Firmaoplysninger');
 $main->assign('description', '');
 $main->assign('keywords', '');
@@ -32,5 +31,5 @@ Vestre Ringgade 60, 1. mf<br />
 <p>Discimport.dk driver udelukkende internetvirksomhed, hvorfor der ikke er mulighed for personlig betjening på adressen uden forudgående aftale.</p>
 ');
 
-echo $main->fetch('main-tpl.php');
+$main->display('main-tpl.php');
 ?>
