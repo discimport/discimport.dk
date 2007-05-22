@@ -12,7 +12,7 @@ if (isset($_GET['add']) AND is_numeric($_GET['add'])) {
 
 if(!empty($_POST['update']) AND is_array($_POST['quantity'])) {
     foreach($_POST['quantity'] as $key => $antal) {
-        if (!$basket_client->changeBasket($key, $antal)) {
+        if (!$basket_client->changeBasket(intval($key), intval($antal))) {
             $error[$key] = 'Så mange er der ikke på lager af dette produkt';
         }
     }
