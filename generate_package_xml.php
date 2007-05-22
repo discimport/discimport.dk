@@ -31,6 +31,7 @@ function getFilelist($dir) {
 getFilelist($web_dir);
 
 $web_files = $rFiles;
+$web_files[] = $web_dir . '/.htaccess';
 
 $ignore = array(
             'generate_package_xml.php',
@@ -51,7 +52,8 @@ $pfm->setOptions(
         'ignore'            => $ignore,
         'exceptions'        => array(),
         'simpleoutput'      => true,
-        'dir_roles' => array('web' => 'web')
+        'dir_roles' => array('web' => 'web'),
+        'addhiddenfiles' => true
     )
 );
 

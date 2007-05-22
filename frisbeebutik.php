@@ -41,7 +41,7 @@ class frisbeebutik_postinstall {
     private $settings = array(
         0 => 'path_root',
         1 => 'path_xmlrpc',
-        3 => 'intraface_private_key'
+        2 => 'intraface_private_key'
     );
 
     /**
