@@ -38,7 +38,7 @@
                 </td>
                 <td>
                 <?php
-                    if (!empty($item["basket_evaluation_product"]) AND $item["basket_evaluation_product"] == 1) {
+                    if (!empty($item["basketevaluation_product"]) AND $item["basketevaluation_product"] == 1) {
                     }
                     else {
                         echo '<input type="text" size="2" value="'.$item["quantity"].'" name="quantity['.$item["id"].']" />';
