@@ -58,9 +58,10 @@ if (!empty($_GET['start'])) {
     $products = $client->getProducts($credentials, $search);
 }
 elseif (!empty($_GET['q']) OR !empty($_GET['keyword'])) {
-    if (!empty($_GET['q'])) $search['search'] = utf8_encode($_GET['q']);
+
+    if (!empty($_GET['q'])) $search['search'] = $_GET['q'];
     if (!empty($_GET['keyword'])) $search['keywords'] = $_GET['keyword'];
-    $products = $client->getProducts($credentials, $search);
+    $products = $client->getProducts($search);
     $err_msg = 'Der var ikke nogen produkter med den pågældende søgning';
     $list->assign('headline', 'Søgning: ' . htmlspecialchars($_GET['q']));
 }

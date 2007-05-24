@@ -38,6 +38,7 @@ $main->assign('keywords', '');
 
 if ($form->validate()) {
     $values = $form->exportValues();
+    $values['internal_note'] = 'Fra webshoppen';
     if ($client->placeOrder($values)) {
         header('Location: confirm.php');
         exit;
