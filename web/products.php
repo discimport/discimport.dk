@@ -46,7 +46,7 @@ require 'include_shop.php';
 require 'Frisbeebutik/Frontend.php';
 require 'IntrafacePublic/Shop/XMLRPC/Client.php';
 
-$debug = false;
+$debug = true;
 $client = new IntrafacePublic_Shop_XMLRPC_Client($credentials, $debug, PATH_XMLRPC . 'shop/server3.php');
 
 $list = new Frisbeebutik_Frontend;
