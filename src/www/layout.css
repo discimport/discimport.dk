@@ -12,6 +12,10 @@ body {
     line-height: 1.4em;
 }
 
+#content-main form fieldset {
+    padding: 1em;
+}
+
 #container {
     width: 875px;
     margin: 0;
@@ -23,7 +27,6 @@ body {
     margin: 0;
     height: 125px;
 }
-
 
 #branding h1 {
     display: none;
@@ -121,9 +124,9 @@ body {
     border: 1px solid #ddd;
     margin: 0 1em 1em 0;
     padding: 1em;
-    width: 200px;
+    width: 150px;
     float: left;
-    height: 240px;
+    height: 150px;
     text-align: center;
 }
 .product-feature img {
@@ -207,4 +210,6 @@ tbody td {
     color: black;
 }
 
-
+p {
+    float: none;
+}

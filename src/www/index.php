@@ -9,7 +9,7 @@ $application = new Frisbeebutik_Root();
 
 $application->registry->registerConstructor('shop', create_function(
   '$className, $args, $registry',
-  'return new IntrafacePublic_Shop_XMLRPC_Client(array("private_key" => INTRAFACE_PRIVATE_KEY, "session_id" => md5($registry->SESSION->getSessionId())), false, "http://localhost/intraface/intraface.dk/xmlrpc/shop/server3.php");'
+  'return new IntrafacePublic_Shop_XMLRPC_Client(array("private_key" => INTRAFACE_PRIVATE_KEY, "session_id" => md5($registry->SESSION->getSessionId())), false);'
 ));
 
 $application->registry->registerConstructor('cache', create_function(
