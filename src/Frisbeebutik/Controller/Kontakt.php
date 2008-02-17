@@ -12,7 +12,7 @@ class Frisbeebutik_Controller_Kontakt extends k_Controller
 <span class="fn">Discimport.dk</span>
 <span class="address">
 co/ Mikael Birkelund Jensen-Johansen<br />
-SÃ¸vej 12<br />
+Søvej 12<br />
 7362 Hampen</span>
 <br />Telefon: <span class="tel">51 92 40 93</span>
 <br />E-mail: <span class="email">mikael@discimport.dk</span>
