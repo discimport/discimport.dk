@@ -1,66 +1,101 @@
-<project name="Frisbeebutik.dk" default="all" basedir=".">
-    <description>
-		-
-    </description>
+<?xml version="1.0" ?>
+<project name="frisbeebutik" basedir="." default="make">
+    <property file="./build.properties" />
+    <taskdef classname="phing.tasks.ext.d51PearPkg2Task" name="d51pearpkg2" />
+    <taskdef classname="phing.tasks.ext.FtpDeployTask" name="ftpdeploy" />
 
-	<property file="${basedir}/project.properties"/>
+    <property name="package-name" value="${phing.project.name}" />
+    <property name="version" value="0.2.0" />
+    <property name="stability" value="alpha" />
 
-	<property name="acceptance.test.lib.dir" value="${functional.test.dir}" />
-	<property name="browser" value="*iexplore" />
-	<property name="base.url" value="http://${web.host.name}:${web.port}" />
-	<property name="acceptance.test.list.dir" value="${functional.test.dir}" />
-	<property name="acceptance.test.report.dir" value="${functional.test.dir}" />
+    <property name="package-filename" value="${package-name}-${version}.tgz" />
 
-	<taskdef name="ftp" classname="org.apache.tools.ant.taskdefs.optional.net.FTP"/>
+    <target name="export">
+        <echo msg="Exporting SVN files" />
+        <delete dir="./build" />
+        <exec command="svn export ./src ./build" />
+    </target>
 
-	<path id="svnant.classpath">
-		<fileset dir="${svnant.dir}">
-			<include name="*.jar" />
-		</fileset>
-	</path>
-	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath" />
+    <target name="build" depends="export">
+        <d51pearpkg2 dir="./build" baseinstalldir="/">
+            <name>${package-name}</name>
+            <summary>frisbeebutik.dk</summary>
+            <channel>public.intraface.dk</channel>
+            <description>
+                <!--        Don't exceed this width         -->
+                Installs frisbeebutik
+            </description>
 
-	<target name="all" depends="clean">
-		<antcall target="export-source-from-svn"/>
-		<antcall target="run-selenium-tests"/>
-		<antcall target="stop-server"/>
-	</target>
+            <lead user="lsolesen" name="Lars Olesen" email="lars@legestue.net" />
+            <license>LGPL</license>
 
-	<target name="clean">
-	</target>
+            <version release="${version}" api="${version}" />
+            <stability release="${stability}" api="${stability}" />
 
-	<target name="export-source-from-svn">
-	</target>
+            <dirroles key="www">web</dirroles>
 
-	<target name="upload-files-to-staging-server">
-		<ftp verbose="yes" passive="no" depends="yes"
-			remotedir="${ftp.remote.directory}" server="${ftp.server}"
-			userid="${ftp.user}" password="${ftp.password}">
-			<fileset dir="${local.directory}" />
-		</ftp>
-	</target>
+            <release>
+                <install as="index.php" name="www/index.php" />
+                <install as="layout.css" name="www/layout.css" />
+            </release>
 
-	<target name="run-selenium-tests">
-		<mkdir dir="${reports.dir}" />
-		<java jar="${acceptance.test.lib.dir}/selenium-server.jar" fork="true" failonerror="false"
-outputproperty="testoutput" errorproperty="testerror" resultproperty="testresult">
-			<arg line="-htmlSuite &quot;${browser}&quot;"/>
-			<arg line="&quot;${base.url}&quot;"/>
-			<arg line="&quot;${acceptance.test.list.dir}/${test.suite}&quot;"/>
-			<arg line="&quot;${reports.dir}/index.html&quot;"/>
-			<arg line="-timeout ${timeout}"/>
-			<arg line="-port ${selenium.rc.port}"/>
-		</java>
-		<echo message="testresult = ${testresult}" />
-		<!--
-    	<echo message="testerror  = ${testerror}" />
-    	<echo message="testoutput = ${testoutput}" />
-    	-->
-	</target>
 
-	<target name="stop-server">
-		<get taskname="selenium-shutdown" src="http://${web.host.name}:${selenium.rc.port}/selenium-server/driver/?cmd=shutDown" dest="result.txt" ignoreerrors="true" />
-		<echo taskname="selenium-shutdown" message="Errors during shutdown are expected" />
-	</target>
+            <dependencies>
+                <php minimum_version="5.2.0" />
 
+                <pear minimum_version="1.6.0"
+                      recommended_version="1.6.1" />
+
+                <package name="IntrafacePublic_Shop_XMLRPC"
+                         channel="public.intraface.dk"
+                         recommended_version="0.1.0"
+                         minimum_version="0.1.0" />
+
+                <package name="IntrafacePublic_Shop_Controller"
+                         channel="public.intraface.dk"
+                         recommended_version="0.1.2"
+                         minimum_version="0.1.2" />
+            </dependencies>
+
+            <notes>
+                * updated to use the new stuff from intraface
+            </notes>
+        </d51pearpkg2>
+    </target>
+
+    <target name="make" depends="build">
+        <echo msg="Creating PEAR archive file for ${package-name}" />
+        <mkdir dir="./build/${package-name}-${version}" />
+        <copy todir="./build/${package-name}-${version}">
+            <fileset dir="./build">
+                <include name="**" />
+            </fileset>
+        </copy>
+        <delete file="${package-filename}" />
+        <tar compression="gzip" destfile="${package-filename}" basedir="./build" />
+    </target>
+
+
+    <target name="deploy" depends="make">
+        <echo msg="Deploying package" />
+        <ftpdeploy host="${ftp.server}" port="21" username="${ftp.user}" password="${ftp.password}" dir="./" mode="ascii" clearfirst="false">
+            <fileset dir="./">
+                <include name="${package-filename}" />
+            </fileset>
+        </ftpdeploy>
+    </target>
+
+
+    <target name="docs" depends="export">
+        <echo msg="Creating documentation" />
+        <phpdoc title="ilib_recursive_array_map Docs"
+            destdir="./apidocs"
+            sourcecode="./build"
+            output="HTML:frames:DOM/earthli"
+        >
+            <fileset dir="./build">
+                <include name="**" />
+            </fileset>
+        </phpdoc>
+    </target>
 </project>
