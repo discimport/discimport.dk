@@ -48,8 +48,8 @@
 
                 <package name="IntrafacePublic_Shop_XMLRPC"
                          channel="public.intraface.dk"
-                         recommended_version="0.1.0"
-                         minimum_version="0.1.0" />
+                         recommended_version="0.1.1"
+                         minimum_version="0.1.1" />
 
                 <package name="IntrafacePublic_Shop_Controller"
                          channel="public.intraface.dk"
