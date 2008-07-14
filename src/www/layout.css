@@ -23,7 +23,7 @@ body {
 }
 
 #branding {
-    background: url(http://www.frisbee.dk/graphics/discimport/Discimport/Webdesign/discimport%202006/DI_topgrafik.jpg) no-repeat;
+    background: url(top.jpg) no-repeat;
     margin: 0;
     height: 125px;
 }
@@ -74,6 +74,10 @@ body {
     padding: 1em 0.5em;
 }
 
+#navigation-main input[type=text] {
+    width: 60%;
+}
+
 #content {
     overflow: hidden;
     background: white;
@@ -87,6 +91,10 @@ body {
     margin-bottom: -999.5em;
     background: inherit;
     color: inherit;
+}
+
+#content-main fieldset {
+    display: none;
 }
 
 #content-main * {
