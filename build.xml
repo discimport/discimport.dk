@@ -5,7 +5,7 @@
     <taskdef classname="phing.tasks.ext.FtpDeployTask" name="ftpdeploy" />
 
     <property name="package-name" value="${phing.project.name}" />
-    <property name="version" value="0.2.0" />
+    <property name="version" value="0.3.0" />
     <property name="stability" value="alpha" />
 
     <property name="package-filename" value="${package-name}-${version}.tgz" />
@@ -37,6 +37,7 @@
             <release>
                 <install as="index.php" name="www/index.php" />
                 <install as="layout.css" name="www/layout.css" />
+            	<install as="top.jpg" name="www/top.jpg" />
             </release>
 
 
@@ -46,15 +47,17 @@
                 <pear minimum_version="1.6.0"
                       recommended_version="1.6.1" />
 
-                <package name="IntrafacePublic_Shop_XMLRPC"
+                <package name="IntrafacePublic_Shop_Client_XMLRPC"
                          channel="public.intraface.dk"
-                         recommended_version="0.1.1"
-                         minimum_version="0.1.1" />
+                         minimum_version="0.1.0" />
 
                 <package name="IntrafacePublic_Shop_Controller"
                          channel="public.intraface.dk"
-                         recommended_version="0.1.2"
-                         minimum_version="0.1.2" />
+                         minimum_version="0.2.3" />
+            	
+                <package name="IntrafacePublic_Shop"
+                         channel="public.intraface.dk"
+                         minimum_version="0.1.0" />            	
             </dependencies>
 
             <notes>
