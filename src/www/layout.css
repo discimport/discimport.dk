@@ -93,7 +93,7 @@ body {
     color: inherit;
 }
 
-#content-main fieldset {
+#content-main form#shop-search {
     display: none;
 }
 
