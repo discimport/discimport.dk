@@ -5,7 +5,7 @@
     <taskdef classname="phing.tasks.ext.FtpDeployTask" name="ftpdeploy" />
 
     <property name="package-name" value="${phing.project.name}" />
-    <property name="version" value="0.5.0" />
+    <property name="version" value="0.6.0" />
     <property name="stability" value="alpha" />
 
     <property name="package-filename" value="${package-name}-${version}.tgz" />
