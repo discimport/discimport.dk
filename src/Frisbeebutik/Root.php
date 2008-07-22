@@ -15,6 +15,7 @@ class Frisbeebutik_Root extends k_Dispatcher
         parent::__construct();
         $this->document->template = dirname(__FILE__) . '/templates/main-tpl.php';
         $this->document->title = 'Discimport.dk';
+        $this->document->company_name = 'Discimport.dk I/S';        
     }
 
     function execute()
