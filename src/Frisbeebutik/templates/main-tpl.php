@@ -6,6 +6,7 @@
         <meta name="verify-v1" content="upUixQlh700P5wulYcNRxw8ZHjz/cC8CTdrVc2LzrQk=" />
         <link rel="alternate" type="application/rss+xml" title="Discimport.dk: Alle produkter" href="http://www.frisbeebutik.dk/shop/rss.php" />
         <style type="text/css">
+            @import "<?php e('http://www.intraface.dk/demo/shop.css'); ?>";
             @import "<?php e(url('/layout.css')); ?>";
         </style>
         <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>

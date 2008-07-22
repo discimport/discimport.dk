@@ -22,12 +22,9 @@ class Frisbeebutik_Root extends k_Dispatcher
         throw new k_http_Redirect($this->url('shop'));
     }
 
-    /*
-    function handleRequest()
+    function __($phrase)
     {
-        $this->subspace = $this->context->getSubspace();
-        $next = new IntrafacePublic_Shop_Controller_Index($this);
-        return $next->handleRequest();
+        $translation = new Frisbeebutik_Translation;
+        return $translation->get($phrase);
     }
-    */
 }

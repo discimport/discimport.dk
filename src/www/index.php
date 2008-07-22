@@ -27,5 +27,21 @@ $application->registry->registerConstructor('cache', create_function(
    return new Cache_Lite($options);'
 ));
 
+$application->registry->registerConstructor('onlinepayment', create_function(
+    '$className, $args, $registry',  
+    'return new IntrafacePublic_OnlinePayment(' .
+    '    new IntrafacePublic_OnlinePayment_Client_XMLRPC(' .
+    '        array("private_key" => INTRAFACE_PRIVATE_KEY, "session_id" => md5($registry->get("k_http_Session")->getSessionId())), ' .
+    '        false' .
+    '    ),' .
+    '    $registry->get("cache")' .
+    ');'
+));
+
+$application->registry->registerConstructor('onlinepayment:payment_html', create_function(
+    '$className, $args, $registry',  
+    'return new Ilib_Payment_Html("Quickpay", $GLOBALS["onlinepayment_merchant"], $GLOBALS["onlinepayment_md5secret"], $registry->get("k_http_Session")->getSessionId());'
+));
+
 
 $application->dispatch();
