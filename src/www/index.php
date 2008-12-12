@@ -27,8 +27,16 @@ $application->registry->registerConstructor('cache', create_function(
    return new Cache_Lite($options);'
 ));
 
+$application->registry->registerConstructor('newsletter', create_function(
+  '$className, $args, $registry',
+  '$credentials["private_key"] = INTRAFACE_PRIVATE_KEY;
+   $credentials["session_id"] = md5($registry->session->getSessionId());
+   return new IntrafacePublic_Newsletter_Client_XMLRPC($credentials, 25, false);
+  '
+));
+
 $application->registry->registerConstructor('onlinepayment', create_function(
-    '$className, $args, $registry',  
+    '$className, $args, $registry',
     'return new IntrafacePublic_OnlinePayment(' .
     '    new IntrafacePublic_OnlinePayment_Client_XMLRPC(' .
     '        array("private_key" => INTRAFACE_PRIVATE_KEY, "session_id" => md5($registry->get("k_http_Session")->getSessionId())), ' .
@@ -39,9 +47,10 @@ $application->registry->registerConstructor('onlinepayment', create_function(
 ));
 
 $application->registry->registerConstructor('onlinepayment:payment_html', create_function(
-    '$className, $args, $registry',  
+    '$className, $args, $registry',
     'return new Ilib_Payment_Html("Quickpay", $GLOBALS["onlinepayment_merchant"], $GLOBALS["onlinepayment_md5secret"], $registry->get("k_http_Session")->getSessionId());'
 ));
+
 
 
 $application->dispatch();
