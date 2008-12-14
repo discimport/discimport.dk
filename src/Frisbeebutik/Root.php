@@ -16,6 +16,8 @@ class Frisbeebutik_Root extends k_Dispatcher
         $this->document->template = dirname(__FILE__) . '/templates/main-tpl.php';
         $this->document->title = 'Discimport.dk';
         $this->document->company_name = 'Discimport.dk I/S';
+        $this->document->keywords = 'frisbee, golfdisc, ultimate, disc golf, danmark, sport, freestyle, skoleidræt, frisbeesalg, frisbeekøb, frisbeegolf, køb, salg, flying disc';
+        $this->document->description = 'Online salg af, frisbee, golfdisc og udstyr til discgolf og ultimate. Danmarks største udvalg til frisbeegolf og ultimatefrisbee';
     }
 
     public function execute()
