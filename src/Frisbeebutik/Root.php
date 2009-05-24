@@ -40,7 +40,12 @@ class Frisbeebutik_Root extends k_Dispatcher
     {
         return $this->registry->get('newsletter');
     }
-    
+
+    public function getOnlinePayment()
+    {
+        return $this->registry->get('onlinepayment');
+    }
+
     public function getBreadcrumpTrail()
     {
         return array(array('name' => 'Shop', 'url' => $this->url('shop')));
