@@ -5,7 +5,7 @@
     <taskdef classname="phing.tasks.ext.FtpDeployTask" name="ftpdeploy" />
 
     <property name="package-name" value="${phing.project.name}" />
-    <property name="version" value="0.6.1" />
+    <property name="version" value="0.6.2" />
     <property name="stability" value="alpha" />
 
     <property name="package-filename" value="${package-name}-${version}.tgz" />
@@ -64,14 +64,17 @@
             	         minimum_version="0.1.0" />            	
                 <package name="IntrafacePublic_OnlinePayment"
                          channel="public.intraface.dk"
-                         minimum_version="0.0.1" />             
-                <package name="IntrafacePublic_OnlinePayment_Client_XMLRPC"
-                         channel="public.intraface.dk"
-                         minimum_version="0.0.1" />             
+                         minimum_version="0.0.1" />       
+            	<package name="IntrafacePublic_OnlinePayment_Client_XMLRPC"
+            	         channel="public.intraface.dk"
+            	         minimum_version="0.0.1" />
                 <package name="IntrafacePublic_OnlinePayment_Controller"
                          channel="public.intraface.dk"
                          minimum_version="0.1.5" />             
-                <package name="Ilib_Payment_Html"
+                <package name="IntrafacePublic_Newsletter_Client_XMLRPC"
+                         channel="public.intraface.dk"
+                         minimum_version="0.1.0" />             
+            	<package name="Ilib_Payment_Html"
                          channel="public.intraface.dk"
                          minimum_version="0.2.3" />             
                 <package name="Ilib_Payment_Html_Provider_Quickpay"
