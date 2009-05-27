@@ -68,4 +68,6 @@ try {
     $errorhandler = new ErrorHandler;
     $errorhandler->addObserver(new ErrorHandler_Observer_File($GLOBALS["error_log"]));
     $errorhandler->handleException($e);
+    
+    echo $e;
 }
