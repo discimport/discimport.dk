@@ -5,7 +5,7 @@
     <taskdef classname="phing.tasks.ext.FtpDeployTask" name="ftpdeploy" />
 
     <property name="package-name" value="${phing.project.name}" />
-    <property name="version" value="0.6.2" />
+    <property name="version" value="0.6.4" />
     <property name="stability" value="alpha" />
 
     <property name="package-filename" value="${package-name}-${version}.tgz" />
@@ -74,18 +74,24 @@
                 <package name="IntrafacePublic_Newsletter_Client_XMLRPC"
                          channel="public.intraface.dk"
                          minimum_version="0.1.0" />             
-            	<package name="Ilib_Payment_Html"
+            	<package name="Ilib_Payment_Authorize"
                          channel="public.intraface.dk"
-                         minimum_version="0.2.3" />             
-                <package name="Ilib_Payment_Html_Provider_Quickpay"
+                         minimum_version="0.1.1" />             
+                <package name="Ilib_Payment_Authorize_Provider_Quickpay"
                          channel="public.intraface.dk"
-                         minimum_version="0.1.4" />             
+                         minimum_version="0.1.1" />  
+                <package name="ErrorHandler"
+                         channel="public.intraface.dk"
+                         minimum_version="0.2.5" />          
+                <package name="Log"
+                         channel="pear.php.net"
+                         minimum_version="1.11.4" />                  
 
             	
             </dependencies>
 
             <notes>
-                * Now also uses translation
+                * Implemented new onlinepayment package
             </notes>
         </d51pearpkg2>
     </target>
