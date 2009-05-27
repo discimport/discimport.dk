@@ -7,7 +7,7 @@ class Frisbeebutik_Root extends k_Dispatcher
                         'help'               => 'Frisbeebutik_Controller_Help');
     public $debug = true;
     public $i18n = array(
-        'basket' => 'Indkøbskurv'
+        'basket' => 'Indkï¿½bskurv'
     );
 
     public function __construct()
@@ -16,8 +16,8 @@ class Frisbeebutik_Root extends k_Dispatcher
         $this->document->template = dirname(__FILE__) . '/templates/main-tpl.php';
         $this->document->title = 'Discimport.dk';
         $this->document->company_name = 'Discimport.dk I/S';
-        $this->document->keywords = 'frisbee, golfdisc, ultimate, disc golf, danmark, sport, freestyle, skoleidræt, frisbeesalg, frisbeekøb, frisbeegolf, køb, salg, flying disc';
-        $this->document->description = 'Online salg af, frisbee, golfdisc og udstyr til discgolf og ultimate. Danmarks største udvalg til frisbeegolf og ultimatefrisbee';
+        $this->document->keywords = 'frisbee, golfdisc, ultimate, disc golf, danmark, sport, freestyle, skoleidrï¿½t, frisbeesalg, frisbeekï¿½b, frisbeegolf, kï¿½b, salg, flying disc';
+        $this->document->description = 'Online salg af, frisbee, golfdisc og udstyr til discgolf og ultimate. Danmarks stï¿½rste udvalg til frisbeegolf og ultimatefrisbee';
     }
 
     public function execute()
@@ -44,6 +44,11 @@ class Frisbeebutik_Root extends k_Dispatcher
     public function getOnlinePayment()
     {
         return $this->registry->get('onlinepayment');
+    }
+    
+    public function getOnlinePaymentAuthorize()
+    {
+        return $this->registry->get('onlinepayment:authorize');
     }
 
     public function getBreadcrumpTrail()

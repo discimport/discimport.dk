@@ -57,6 +57,11 @@ $application->registry->registerConstructor('onlinepayment', create_function(
     ');'
 ));
 
+$application->registry->registerConstructor('onlinepayment:authorize', create_function(
+    '$className, $args, $registry',
+    'return new Ilib_Payment_Authorize_Provider_Quickpay_Testing($GLOBALS["onlinepayment_merchant"], $GLOBALS["onlinepayment_md5secret"]);'
+));
+
 $application->registry->registerConstructor('onlinepayment:payment_html', create_function(
     '$className, $args, $registry',
     'return new Ilib_Payment_Html("Quickpay", $GLOBALS["onlinepayment_merchant"], $GLOBALS["onlinepayment_md5secret"], $registry->get("k_http_Session")->getSessionId());'
