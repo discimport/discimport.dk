@@ -1,9 +1,11 @@
 <?php
-error_reporting(9999);
-define('INTRAFACEPUBLIC_SHOP_INCLUDE_PATH', dirname(__FILE__) . '/../' . PATH_SEPARATOR . get_include_path());
-define('INTRAFACE_PRIVATE_KEY', '');
-define('INTRAFACE_SHOP_ID', 0);
-$GLOBALS["onlinepayment_merchant"] = 0;
+$GLOBALS['path_include'] = 
+    '../' . PATH_SEPARATOR .  
+    get_include_path();
+$GLOBALS['intraface_private_key'] = '';
+$GLOBALS['intraface_shop_id'] = 0;
+$GLOBALS["onlinepayment_merchant"] = '';
 $GLOBALS["onlinepayment_md5secret"] = '';
+$GLOBALS["error_log"] = realpath('../errorlog/error.log');
 
 
