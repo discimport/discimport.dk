@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* Reset CSS Document */
+/* reset css styles individually instead of universal selector. */
+/* based on http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/ */
+html, body{
+	margin: 0;
+	padding: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+	border-left:0;
+} 
+div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+em{font-style:italic}
+ol, ul {	list-style: none;}
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+/* end reset styles */
+/* clearing technique */
+.clearfix:after {
+    content:"."; 
+    display:block; 
+    height:0; 
+    clear:both; 
+    visibility:hidden;
+}
+.clearfix {display:inline-block;}
+/* mac hide \*/
+.clearfix {display: block;}
+ /* End hide */
+/*........... do not change or amalgamate the above clearfix styles..................*/
+
+ul{list-style:none;}
+p,h1,h2,h3,h4,h5,h6,ul {margin-bottom:.5em}
+a img,img{border:none;display:block;}
+a{cursor:pointer!important;text-decoration:none}
+a{color:#09c}
+a:visited{color:#39c;}
+input,textarea{font-family: Arial, Helvetica, sans-serif}
+.mt0{margin-top:0!important}
+.mb0{margin-bottom:0!important}
+h1,h2,h3,h4,h5,h6{
+	font-weight:bold;
+	font-size:100%;
+}
+

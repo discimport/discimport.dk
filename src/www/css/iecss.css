@@ -1,0 +1,63 @@
+/* IE CSS Document */
+body {font-size:x-small;f\ont-size:small}/*ie5 and 5.5. that are one size out*/
+body table{font-size:x-small;f\ont-size:small}
+
+input.searchtext{padding:2px 5px 1px;}
+input.searchbutton{
+	position:relative;
+	top:1px;
+}
+* html ul.breadcrumb{
+	width:934px;
+	w\idth:912px;
+}
+* html .cols3 ul.breadcrumb{
+	width:767px;
+	w\idth:745px;
+}
+
+* html ul.cat li a{
+	width:176px;
+	height:152px;
+	w\idth:174px;
+	he\ight:150px;
+}
+* html ul.cat2 li{
+	width:176px;
+	height:152px;
+	w\idth:174px;
+	he\ight:150px;
+}
+* html ul.cat2 ul li,
+* html ul.cat2 ul li a{
+	width:170px;
+	height:auto;
+}
+
+* html .kategor2 #content{height:543px;}
+ul.cat2 li img{top:0;}
+* html .pricebox{
+	width:178px;
+	w\idth:176px;
+}
+p.cart1 img{top:0;}
+* html p.cart1 img {top:5px}
+* html p.cart1 span{position:relative;top:5px;} 
+input.purchase-button{top:0;}
+input.purchase-button{height:auto}
+input.purchase-qty{padding:3px 0 3px;}
+.purchase p{margin:0  0 9px}
+.purchform2 a{
+	bottom:-12px;
+}
+.purchform2 strong{	top:7px;}
+.checktext label{position:relative;top:4px;}
+p.accept input{	top:0}
+.orderleft p.accept,
+p.warn2,
+.orderright strong{zoom:1.0}
+* html .orderright p.ad2{margin:6px 0 0 113px}
+
+
+
+

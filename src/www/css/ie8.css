@@ -1,0 +1,8 @@
+@charset "utf-8";
+/* IE8 CSS Document */
+a{position:relative}/* ie8 hover bug*/
+
+input.purchase-button{padding:4px 0 3px;}
+input.purchase-button{height:auto;top:0}
+.checktext label{position:relative;top:4px;}
+p.accept input{	top:0}
