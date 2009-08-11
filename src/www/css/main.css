@@ -488,11 +488,14 @@ ul.discs li{margin:0 0 1px;}
 	overflow:hidden;
 	border-top:1px solid #ccc;
 	padding:0 0 10px;
+	border-collapse:collapse;
 }
+.overview td{vertical-align:middle;}
 .desc{
 	float:left;
 	width:500px;
 }
+.overview td.desc{float:none}
 .desc p{
 	font-size:10px;
 	color:#333;
@@ -508,11 +511,20 @@ p.imgleft{
 	width:112px;
 	float:left;
 }
-p.imgleft img{margin:auto}
+td.imgleft{
+	width:112px;
+	float:none;
+	text-align:center;
+}
+td.imgleft img,p.imgleft img{margin:auto}
 .overview li{
 	width:733px;
 	overflow:hidden;
 	padding:22px 0 19px;
+	border-bottom:1px solid #ccc;
+}
+table.overview td{
+	padding:22px 0 22px;
 	border-bottom:1px solid #ccc;
 }
 .overview li ul{margin:9px 0 0}
@@ -537,6 +549,15 @@ p.imgleft img{margin:auto}
 	display:inline;
 	font-size:12px;
 }
+td.purchase{
+	float:none;
+	width:90px;
+	margin:0;
+	text-align:right;
+	display:block;
+	display:table-cell;
+}
+
 .purchase p{margin:0  0 7px}
 .purchase a{
 	color:#f60;
@@ -623,6 +644,7 @@ div.breadcrumb2 li strong{color:#000;}
 	position:relative;
 	margin:14px 0 0;
 }
+td.purchase .purchform2{margin:0}
 .purchform2 span{position:relative;}
 .purchform2 strong{
 	float:right;
