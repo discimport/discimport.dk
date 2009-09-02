@@ -4,7 +4,7 @@ class Frisbeebutik_Controller_Help extends k_Controller
     function GET()
     {
         return '
-<h1>Hjælp!</h1>
+<h2>Hjælp!</h2>
 
 <h4>Hvordan bestiller jeg varer?</h4>
 

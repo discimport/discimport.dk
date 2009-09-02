@@ -4,16 +4,16 @@ class Frisbeebutik_Controller_Handelsbetingelser extends k_Controller
     function GET()
     {
         return '
-<h1>Salgs- og leveringsbetingelser</h1>
+<h2>Salgs- og leveringsbetingelser</h2>
 
-<h2>Generelt</h2>
+<h3>Generelt</h3>
 <p>Nedenstående salgs- og leveringsbetingelser gælder for alle handler indgået med Discimport.dk.</p>
 
-<h2>Priser</h2>
+<h3>Priser</h3>
 
 <p>Alle priser på hjemmesiden er kontante enhedspriser inkl. moms. Discimport.dk forbeholder sig ret til at ændre priser uden varsel.</p>
 
-<h2>Bestilling</h2>
+<h3>Bestilling</h3>
 
 <p>Alle varer kan bestilles online i vores webshop.</p>
 
@@ -21,7 +21,7 @@ class Frisbeebutik_Controller_Handelsbetingelser extends k_Controller
 
 <p>Discimport.dk svarer gerne på henvendelser angående produkter og leveringstid inden køb.</p>
 
-<h2>Betaling</h2>
+<h3>Betaling</h3>
 <p>I vores webshop kan du betale med følgende betalingsmidler:</p>
 
 <ul>
@@ -36,12 +36,12 @@ Betales med betalingskort er du altid sikret mod misbrug. Du har nemlig mulighed
 Beløbet for varerne trøkkes først, nør varerne sendes fra stormagasinet. Der kan aldrig trøkkes et større beløb, end det du har godkendt ved købet.
 -->
 
-<h2>Levering</h2>
+<h3>Levering</h3>
 <p>Discimport.dk sender med PostDanmark over hele Danmark (eksl. Grønland og Færøerne).</p>
 
 <p>Alle ordrer leveres inden for 3-10 hverdage, medmindre andet fremgår under beskrivelsen af det enkelte produkt. Der tages imidlertid forbehold for udsolgte og udgåede varer samt forlænget leveringstid og leveringssvigt af varer fra vores leverandører.</p>
 
-<h2>Reklamationsret</h2>
+<h3>Reklamationsret</h3>
 
 <p>Du har efter købeloven reklamationsret i 24 måneder på alle varer. Reklamationsretten betyder, at du som kunde kan klage over fejl og mangler ved produktet som er opstået 24 måneder efter købet. Der er ingen reklamationsret på discs, som er gået i stykker på grund af slid eller forkert behandling. Knækkede discs byttes som hovedregel ikke.</p>
 
@@ -53,7 +53,7 @@ Beløbet for varerne trøkkes først, nør varerne sendes fra stormagasinet. Der kan
 
 <p>Discimport.dk er uden ansvar for enhver forsinkelse som følge af afhjælpningen eller ombytningen.</p>
 
-<h2>Returret</h2>
+<h3>Returret</h3>
 
 <p>Discimport.dk yder 14 dages returret fra den dag varen modtages. Returnering sker for kundens regning.</p>
 
@@ -67,13 +67,13 @@ Beløbet for varerne trøkkes først, nør varerne sendes fra stormagasinet. Der kan
 
 <p>Når vi har modtaget varen retur og kontrolleret, at den lever op til betingelserne for at fortrydelsesretten kan udnyttes, tilbagebetales den totale købesum til dig ved en overførsel til din bank. Det vil lette vores ekspedition, hvis du samtidigt sender os oplysninger om dit pengeinstitut. Vi skal bruge følgende oplysninger: Bankens navn, bankens registreringsnummer (4 cifre) samt dit kontonummer (10 cifre).</p>
 
-<h2>E-markedsføring</h2>
+<h3>E-markedsføring</h3>
 
 <p>Der udsendes ingen e-mail-reklamer eller lignende fra Discimport.dk uden dit udtrykkelige/aktive samtykke hertil (f.eks. nyhedsbrevet).</p>
 
-<h2>Persondatapolitik</h2>
+<h3>Persondatapolitik</h3>
 
-<h3>Cookies</h2>
+<h4>Cookies</h4>
 
 <p>En cookie er en betegnelse for det forhold, at en brugers adfærd på et netværk registreres hos brugeren selv (på brugerens harddisk). På den måde ved serveren (fx. et websted) ved brugerens næste besøg, hvem brugeren er. Der lagres ikke personhenførbare oplysninger i en cookie, men snarere oplysninger om brugerens adfærd på et website fx. et indtastet brugernavn i forbindelse med login til en særlig sektion på webstedet. En cookie lagres på brugens harddisk sammen med cachede filer. En cookie er således en tekstfil, der sendes til din browser fra en webserver og lagres på din computers harddisk. Du kan sætte din browser til at informere dig, når du modtager en cookie, eller du kan vælge at slå cookies helt fra.</p>
 
@@ -81,7 +81,7 @@ Beløbet for varerne trøkkes først, nør varerne sendes fra stormagasinet. Der kan
 
 <p>Vi anvender Google Analytics til at se brugernes færden på vores website, så vi kan forbedre oplevelsen for alle brugere.</p>
 
-<h3>Registrering</h3>
+<h4>Registrering</h4>
 <p>For at du kan indgå en aftale med os via websitet skal du lade dig registrere med navn, adresse, telefonnummer og email-adresse. Personoplysningerne registreres hos Discimport.dk. Vi foretager udelukkende registreringen af dine personoplysninger med det formål at kunne levere varen til dig.</p>
 
 <p>Vi registrerer desuden relevante data vedrørende købet, for senere at kunne finde kundens faktura med fx serienumre på varer.</p>

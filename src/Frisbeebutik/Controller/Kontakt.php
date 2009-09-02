@@ -4,7 +4,7 @@ class Frisbeebutik_Controller_Kontakt extends k_Controller
     function GET()
     {
         return '
-<h1>Firmaoplysninger</h1>
+<h2>Firmaoplysninger</h2>
 
 <p>Webshoppen ejes og drives af:</p>
 

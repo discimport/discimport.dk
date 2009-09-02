@@ -1,134 +1,181 @@
 <?xml version="1.0" ?>
-<project name="frisbeebutik" basedir="." default="make">
-    <property file="./build.properties" />
+<project name="frisbeebutik" basedir="." default="build">
     <taskdef classname="phing.tasks.ext.d51PearPkg2Task" name="d51pearpkg2" />
-    <taskdef classname="phing.tasks.ext.FtpDeployTask" name="ftpdeploy" />
+    <taskdef classname="phing.tasks.ext.IlibPearDeployerTask" name="peardeploy" />
 
     <property name="package-name" value="${phing.project.name}" />
-    <property name="version" value="0.6.4" />
-    <property name="stability" value="alpha" />
+    <property name="version" value="0.6.5" />
+    <property name="stability" value="beta" />
+    <property name="pear.channel" value="public.intraface.dk" />
 
-    <property name="package-filename" value="${package-name}-${version}.tgz" />
+    <property name="source.dir" value="." />
+    <property name="tests.dir" value="./tests" />
+    <property name="build.dir" value="../build" />
+    <property name="reports.phpcs.dir" value="../build/logs" />
+    <property name="reports.dir" value="../build/logs" />
+    <property name="reports.phpunit.dir" value="../../build/logs" />
+    <property name="reports.coverage.dir" value="../../build/logs/coverage" />
+    <property name="api.dir" value="../build/api" />
+
+    <target name="prepare">
+        <delete dir="${build.dir}" />
+        <mkdir dir="${build.dir}" />
+    </target>
 
     <target name="export">
         <echo msg="Exporting SVN files" />
-        <delete dir="./build" />
-        <exec command="svn export ./src ./build" />
+        <exec command="svn export ${source.dir}/src ${build.dir}/temp" />
+        <mkdir dir="${build.dir}/package/${package-name}-${version}" />
+        <copy todir="${build.dir}/package/${package-name}-${version}">
+            <filterchain>
+                <replacetokens begintoken="@@" endtoken="@@">
+                    <token key="VERSION" value="${version}" />
+                </replacetokens>
+            </filterchain>
+            <fileset dir="${build.dir}/temp">
+                <include name="**" />
+                <exclude name="www/*.htm" />
+                <exclude name="www/config.local.php" />
+            </fileset>
+        </copy>
     </target>
 
-    <target name="build" depends="export">
-        <d51pearpkg2 dir="./build" baseinstalldir="/">
+    <target name="pear" depends="export">
+        <d51pearpkg2 dir="${build.dir}/package/${package-name}-${version}/" baseinstalldir="/">
             <name>${package-name}</name>
             <summary>frisbeebutik.dk</summary>
-            <channel>public.intraface.dk</channel>
+            <channel>${pear.channel}</channel>
             <description>
-                <!--        Don't exceed this width         -->
                 Installs frisbeebutik
             </description>
-
             <lead user="lsolesen" name="Lars Olesen" email="lars@legestue.net" />
+            <lead user="sune.t.jensen" name="Sune Jensen" email="sj@sunet.dk" />
             <license>LGPL</license>
-
             <version release="${version}" api="${version}" />
             <stability release="${stability}" api="${stability}" />
-
-            <dirroles key="www">web</dirroles>
-
+            <dirroles key="www">www</dirroles>
             <release>
+                <install as="cache_b0c5a7b712706847fe378dc39121788e_281630bc51e6ee70d00ae66d242b06ba" name="www/cache_b0c5a7b712706847fe378dc39121788e_281630bc51e6ee70d00ae66d242b06ba" />
+                <install as="cache_b0c5a7b712706847fe378dc39121788e_4e3e37330cfc05aa871fbc66c8d5bbc4" name="www/cache_b0c5a7b712706847fe378dc39121788e_4e3e37330cfc05aa871fbc66c8d5bbc4" />
+                <install as="cache_b0c5a7b712706847fe378dc39121788e_ce226d995589083bfd24156750f6a8d5" name="www/cache_b0c5a7b712706847fe378dc39121788e_ce226d995589083bfd24156750f6a8d5" />
+                <install as="cart.htm" name="www/cart.htm" />
+                <install as="config.example.php" name="www/config.example.php" />
+                <install as="config.local.php" name="www/config.local.php" />
+                <install as="css/ie8.css" name="www/css/ie8.css" />
+                <install as="css/iecss.css" name="www/css/iecss.css" />
+                <install as="css/main.css" name="www/css/main.css" />
+                <install as="css/reset.css" name="www/css/reset.css" />
+                <install as="detaljer.htm" name="www/detaljer.htm" />
+                <install as="error.log" name="www/error.log" />
+                <install as="forside.htm" name="www/forside.htm" />
+                <install as="images/Thumbs.db" name="www/images/Thumbs.db" />
+                <install as="images/arrow11x10.gif" name="www/images/arrow11x10.gif" />
+                <install as="images/arrow3x5.gif" name="www/images/arrow3x5.gif" />
+                <install as="images/base2.gif" name="www/images/base2.gif" />
+                <install as="images/button1.gif" name="www/images/button1.gif" />
+                <install as="images/cart1.gif" name="www/images/cart1.gif" />
+                <install as="images/cart2.gif" name="www/images/cart2.gif" />
+                <install as="images/cat174x111-1.jpg" name="www/images/cat174x111-1.jpg" />
+                <install as="images/cat174x111-10.jpg" name="www/images/cat174x111-10.jpg" />
+                <install as="images/cat174x111-11.jpg" name="www/images/cat174x111-11.jpg" />
+                <install as="images/cat174x111-12.jpg" name="www/images/cat174x111-12.jpg" />
+                <install as="images/cat174x111-13.jpg" name="www/images/cat174x111-13.jpg" />
+                <install as="images/cat174x111-14.jpg" name="www/images/cat174x111-14.jpg" />
+                <install as="images/cat174x111-15.jpg" name="www/images/cat174x111-15.jpg" />
+                <install as="images/cat174x111-2.jpg" name="www/images/cat174x111-2.jpg" />
+                <install as="images/cat174x111-3.jpg" name="www/images/cat174x111-3.jpg" />
+                <install as="images/cat174x111-4.jpg" name="www/images/cat174x111-4.jpg" />
+                <install as="images/cat174x111-5.jpg" name="www/images/cat174x111-5.jpg" />
+                <install as="images/cat174x111-6.jpg" name="www/images/cat174x111-6.jpg" />
+                <install as="images/cat174x111-7.jpg" name="www/images/cat174x111-7.jpg" />
+                <install as="images/cat174x111-8.jpg" name="www/images/cat174x111-8.jpg" />
+                <install as="images/cat174x111-9.jpg" name="www/images/cat174x111-9.jpg" />
+                <install as="images/cat2bg.jpg" name="www/images/cat2bg.jpg" />
+                <install as="images/catbg.jpg" name="www/images/catbg.jpg" />
+                <install as="images/cols2.gif" name="www/images/cols2.gif" />
+                <install as="images/cols3.gif" name="www/images/cols3.gif" />
+                <install as="images/discimport.jpg" name="www/images/discimport.jpg" />
+                <install as="images/header.jpg" name="www/images/header.jpg" />
+                <install as="images/img160x160-1.jpg" name="www/images/img160x160-1.jpg" />
+                <install as="images/img69x69-1.jpg" name="www/images/img69x69-1.jpg" />
+                <install as="images/img69x69-2.jpg" name="www/images/img69x69-2.jpg" />
+                <install as="images/img69x69-3.jpg" name="www/images/img69x69-3.jpg" />
+                <install as="images/img69x69-4.jpg" name="www/images/img69x69-4.jpg" />
+                <install as="images/img72x72-1.jpg" name="www/images/img72x72-1.jpg" />
+                <install as="images/img72x72-2.jpg" name="www/images/img72x72-2.jpg" />
+                <install as="images/img72x72-3.jpg" name="www/images/img72x72-3.jpg" />
+                <install as="images/img72x72-4.jpg" name="www/images/img72x72-4.jpg" />
+                <install as="images/img86x72-1.jpg" name="www/images/img86x72-1.jpg" />
+                <install as="images/img86x72-2.jpg" name="www/images/img86x72-2.jpg" />
+                <install as="images/img86x72-3.jpg" name="www/images/img86x72-3.jpg" />
+                <install as="images/img86x72-4.jpg" name="www/images/img86x72-4.jpg" />
+                <install as="images/inputbg1.jpg" name="www/images/inputbg1.jpg" />
+                <install as="images/inputbg2.jpg" name="www/images/inputbg2.jpg" />
+                <install as="images/inputbg3.jpg" name="www/images/inputbg3.jpg" />
+                <install as="images/logo.jpg" name="www/images/logo.jpg" />
+                <install as="images/visa.jpg" name="www/images/visa.jpg" />
                 <install as="index.php" name="www/index.php" />
+                <install as="kategor-1.htm" name="www/kategor-1.htm" />
+                <install as="kategor-2.htm" name="www/kategor-2.htm" />
                 <install as="layout.css" name="www/layout.css" />
-            	<install as="top.jpg" name="www/top.jpg" />
+                <install as="mobil/index.php" name="www/mobil/index.php" />
+                <install as="mobil/vis_ordre.php" name="www/mobil/vis_ordre.php" />
+                <install as="order.htm" name="www/order.htm" />
+                <install as="product-oversigt.htm" name="www/product-oversigt.htm" />
+                <install as="product-side.htm" name="www/product-side.htm" />
+                <install as="top.jpg" name="www/top.jpg" />
             </release>
-
-
             <dependencies>
                 <php minimum_version="5.2.0" />
-
-                <pear minimum_version="1.6.0"
-                      recommended_version="1.6.1" />
-
-                <package name="IntrafacePublic_Shop_Client_XMLRPC"
-                         channel="public.intraface.dk"
-                         minimum_version="0.3.0" />
-                <package name="IntrafacePublic_Shop_Controller"
-                         channel="public.intraface.dk"
-                         minimum_version="0.5.0" />
-                <package name="IntrafacePublic_Shop_Translation"
-                             channel="public.intraface.dk"
-                             minimum_version="0.1.4" />               	
-                <package name="IntrafacePublic_Shop"
-                         channel="public.intraface.dk"
-                         minimum_version="0.3.0" />            	
-            	<package name="Ilib_ClassLoader"
-            	         channel="public.intraface.dk"
-            	         minimum_version="0.1.0" />            	
-                <package name="IntrafacePublic_OnlinePayment"
-                         channel="public.intraface.dk"
-                         minimum_version="0.0.1" />       
-            	<package name="IntrafacePublic_OnlinePayment_Client_XMLRPC"
-            	         channel="public.intraface.dk"
-            	         minimum_version="0.0.1" />
-                <package name="IntrafacePublic_OnlinePayment_Controller"
-                         channel="public.intraface.dk"
-                         minimum_version="0.1.5" />             
-                <package name="IntrafacePublic_Newsletter_Client_XMLRPC"
-                         channel="public.intraface.dk"
-                         minimum_version="0.1.0" />             
-            	<package name="Ilib_Payment_Authorize"
-                         channel="public.intraface.dk"
-                         minimum_version="0.1.1" />             
-                <package name="Ilib_Payment_Authorize_Provider_Quickpay"
-                         channel="public.intraface.dk"
-                         minimum_version="0.1.1" />  
-                <package name="ErrorHandler"
-                         channel="public.intraface.dk"
-                         minimum_version="0.2.5" />          
-                <package name="Log"
-                         channel="pear.php.net"
-                         minimum_version="1.11.4" />                  
-
-            	
+                <pear minimum_version="1.6.0" recommended_version="1.6.1" />
+                <package name="IntrafacePublic_Shop_Client_XMLRPC" channel="public.intraface.dk" recommended_version="" minimum_version="0.3.0" />
+                <package name="IntrafacePublic_Shop_Controller" channel="public.intraface.dk" recommended_version="" minimum_version="0.5.0" />
+                <package name="IntrafacePublic_Shop_Translation" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.4" />
+                <package name="IntrafacePublic_Shop" channel="public.intraface.dk" recommended_version="" minimum_version="0.3.0" />
+                <package name="Ilib_ClassLoader" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.0" />
+                <package name="IntrafacePublic_OnlinePayment" channel="public.intraface.dk" recommended_version="" minimum_version="0.0.1" />
+                <package name="IntrafacePublic_OnlinePayment_Client_XMLRPC" channel="public.intraface.dk" recommended_version="" minimum_version="0.0.1" />
+                <package name="IntrafacePublic_OnlinePayment_Controller" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.5" />
+                <package name="IntrafacePublic_Newsletter_Client_XMLRPC" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.0" />
+                <package name="Ilib_Translation_Collection" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.0" />
+            	<package name="Ilib_Payment_Authorize" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.1" />
+                <package name="Ilib_Payment_Authorize_Provider_Quickpay" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.1" />
+                <package name="ErrorHandler" channel="public.intraface.dk" recommended_version="" minimum_version="0.2.5" />
+                <package name="Log" channel="pear.php.net" recommended_version="" minimum_version="1.11.4" />
             </dependencies>
-
-            <notes>
-                * Implemented new onlinepayment package
-            </notes>
+            <notes>* New design</notes>
         </d51pearpkg2>
     </target>
 
-    <target name="make" depends="build">
-        <echo msg="Creating PEAR archive file for ${package-name}" />
-        <mkdir dir="./build/${package-name}-${version}" />
-        <copy todir="./build/${package-name}-${version}">
-            <fileset dir="./build">
-                <include name="**" />
-            </fileset>
-        </copy>
-        <delete file="${package-filename}" />
-        <tar compression="gzip" destfile="${package-filename}" basedir="./build" />
+    <target name="build" depends="prepare, export, test, phpcs, php-documentor, make-pear-package"></target>
+    <target name="make-pear-package" depends="pear">
+        <tar compression="gzip" destfile="${build.dir}/${package-name}-${version}.tgz" basedir="${build.dir}/package" />
     </target>
 
-
-    <target name="deploy" depends="make">
-        <echo msg="Deploying package" />
-        <ftpdeploy host="${ftp.server}" port="21" username="${ftp.user}" password="${ftp.password}" dir="./" mode="ascii" clearfirst="false">
-            <fileset dir="./">
-                <include name="${package-filename}" />
+    <target name="deploy" depends="build">
+        <property file="./build.properties" />
+        <peardeploy uri="${pear.channel.uri}" username="${pear.channel.username}" password="${pear.channel.password}">
+            <fileset dir="${build.dir}">
+                <include name="${package-name}-${version}.tgz"/>
+            </fileset>
+        </peardeploy>
+        <ftpdeploy host="${ftp.host}" username="${ftp.user}" password="${ftp.password}" port="21" dir="./public.intraface.dk/docs/" mode="binary" clearfirst="false">
+            <fileset dir="${api.dir}">
+                <include name="*/**" />
             </fileset>
         </ftpdeploy>
     </target>
 
-
-    <target name="docs" depends="export">
-        <echo msg="Creating documentation" />
-        <phpdoc title="ilib_recursive_array_map Docs"
-            destdir="./apidocs"
-            sourcecode="./build"
-            output="HTML:frames:DOM/earthli"
-        >
-            <fileset dir="./build">
-                <include name="**" />
-            </fileset>
-        </phpdoc>
+    <target name="phpcs">
+        <exec output="${reports.phpcs.dir}/checkstyle.xml" dir="${source.dir}/src" command="phpcs --report=checkstyle . --standard=PEAR" />
     </target>
+
+    <target name="php-documentor" depends="export">
+        <mkdir dir="${api.dir}/${package-name}" />
+        <exec dir="${source.dir}" command="phpdoc -ue on -t ${api.dir}/${package-name} -d ./src" passthru="true" />
+    </target>
+
+    <target name="test">
+    </target>
+
 </project>

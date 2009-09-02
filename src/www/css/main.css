@@ -764,7 +764,7 @@ li.totalrow{padding:14px 0 9px!important;}
 }
 .detright{float:right;padding-bottom:0;}
 
-.details label {
+.details-customer label, .details-customer-ean label {
 	float:left;
 	width:120px;
 	clear:both;
@@ -776,17 +776,17 @@ li.totalrow{padding:14px 0 9px!important;}
 	position:relative;
 	top:3px;
 }
-.details label b{
+.details-customer label b, .details-customer-ean b {
 	position:relative;
 	top:-2px;
 }
-.details label b.warn{color:#f00}
-.details .controls {
+.details-customer label b.warn{color:#f00}
+.details-customer .controls {
 	overflow:hidden;
 	width:265px;
 	display:block;
 }
-.details input {
+.details-customer input. details-customer-ean input {
 	margin:0 0 4px
 }
 .mb15{margin-bottom:17px!important}
@@ -796,7 +796,7 @@ li.totalrow{padding:14px 0 9px!important;}
 	margin:1em 0;
 }
 .detright div{border-bottom:6px solid #fff;padding-bottom:14px;}
-.details legend span{
+.details-customer legend span, details-customer-ean legend span {
 	position:absolute;
 	left:0;
 	top:-999em;
@@ -808,17 +808,17 @@ li.totalrow{padding:14px 0 9px!important;}
 	border-top:2px solid #8d8d8d;
 	border-bottom:1px solid #e3e3e3;
 }
-.details input{
+.details-customer input, details-customer-ean input{
 	font-size:10px;
 	font-weight:bold;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 }
 div.ean{padding-top:35px;}
 
-.details p.out a{
+.details-customer p.out a{
 	background: url(../images/inputbg3.jpg) repeat-x 0% 50%;
 }
-.details p.out,.details p.back{margin:13px 0 20px 0}
+.details-customer p.out,.details-customer p.back{margin:13px 0 20px 0}
 .prevnext{
 	width:600px;
 	clear:both;

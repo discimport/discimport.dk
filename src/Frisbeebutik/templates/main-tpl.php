@@ -2,37 +2,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="da" lang="da">
     <head>
         <title><?php e($this->document->title); ?></title>
+        <meta name="verify-v1" content="5sVlwrz5kabk/OZGtea26qVEGzwl+M7PCWLEer2JquM=" >
         <meta name="Keywords" content="<?php e($this->document->keywords); ?>" />
         <meta name="Description" content="<?php e($this->document->description); ?>" />
         <meta http-equiv="Content-Type" content="text/html; charset=<?php e($this->document->encoding); ?>" />
         <meta name="verify-v1" content="upUixQlh700P5wulYcNRxw8ZHjz/cC8CTdrVc2LzrQk=" />
-        <link rel="alternate" type="application/rss+xml" title="Discimport.dk: Alle produkter" href="http://www.frisbeebutik.dk/shop/rss.php" />
-        <style type="text/css">
-            @import "<?php e('http://www.intraface.dk/demo/shop.css'); ?>";
-            @import "<?php e(url('/layout.css')); ?>";
-        </style>
+        <!--<link rel="alternate" type="application/rss+xml" title="Discimport.dk: Alle produkter" href="/shop/rss.php" />-->
+        <link href="<?php e(url('/css/reset.css')); ?>" rel="stylesheet" media="screen, projection" type="text/css" />
+        <link href="<?php e('http://www.intraface.dk/demo/shop.css'); ?>" rel="stylesheet" media="screen, projection" type="text/css" />
+        <link href="<?php e(url('/css/main.css')); ?>" rel="stylesheet" media="screen, projection" type="text/css" />
+        <link href="<?php e(url('/css/print.css')); ?>" rel="stylesheet" media="print" type="text/css" />
+        <!--[if lte IE 7]>
+        <link href="<?php e(url('/css/iecss.css')); ?>" rel="stylesheet"  media="screen,projection" type="text/css" />
+        <![endif]-->
+        <!--[if IE 8]>
+        <link href="<?php e(url('/css/ie8.css')); ?>" rel="stylesheet"  media="screen,projection" type="text/css" />
+        <![endif]-->
     </head>
 
-    <body>
-    <div id="container">
-
-        <div id="branding">
-            <h1><a href="<?php e(url('/')); ?>">Discimport.dk - Butikken</a></h1>
-        </div>
-
+    <body class="<?php e($this->document->body_class); ?>">
+    <div id="outer">
+    <h1><a href="<?php e(url('/')); ?>">Discimport: Frisbees Til Sport Og Leg<em></em></a></h1>
+    <p class="logo"><a href="#"><img src="<?php e(url('/images/logo.jpg')); ?>" alt="Discimport.dk" width="169" height="169" /></a></p>
+    <!-- start main columns -->
+    <div class="main <?php e($this->document->main_class); ?>">
+        <!-- #content is main right column -->
         <div id="content">
-
-            <div id="navigation-main">
-
-                <form action="<?php e(url('/shop/products')); ?>" method="get">
-                    <fieldset>
-                        <input type="text" name="q" value="<?php if (!empty($this->GET['q'])) e($this->GET['q']); ?>" />
-                        <input type="submit" value="Søg" />
-                    </fieldset>
-                </form>
-
-
-                <ul>
+            <?php echo $content; ?>
+        </div>
+        <!-- end content -->
+        <!-- start left column sidebar -->
+        <div id="sidebar">
+            <form id="form1" method="get" action="<?php e(url('/shop/products')); ?>">
+                <div class="search">
+                    <input class="searchtext" type="text" name="q"  />
+                    <input class="searchbutton" type="submit" name="searchbutton"  value="Søg" />
+                </div>
+            </form>
+            <ul id="nav">
+                <!-- use classs=current if you want this to remain a link <li class="current"><a href="forside.htm">Forside</a></li>-->
                     <li><a href="<?php e(url('/')); ?>">Forside</a></li>
                     <li><a href="<?php e(url('/shop/products')); ?>">Produkter</a></li>
                     <li><a href="<?php e(url('/shop/catalogue')); ?>">Kategorier</a></li>
@@ -40,19 +48,12 @@
                     <li><a href="<?php e(url('/handelsbetingelser')); ?>">Handelsbetingelser</a></li>
                     <li><a href="<?php e(url('/kontakt')); ?>">Kontakt</a></li>
                     <li><a href="<?php e(url('/help')); ?>">Hjælp</a></li>
-                </ul>
-
-
-            </div>
-
-            <div id="content-main">
-                <?php
-                    echo $content;
-                ?>
-            </div>
+            </ul>
         </div>
-
+        <!-- end sidebar -->
     </div>
+    <!-- end main -->
+    <div class="base"></div>
 
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
