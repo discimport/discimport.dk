@@ -2,7 +2,7 @@
 <?php echo $content; ?>
 </div>
             <div id="sidebar2">
-                <p class="cart1"><img src="<?php e(url('/images/cart1.gif')); ?>" alt="Indkøbskurv" width="25" height="18" /> <span>Indkøbskurv</span></p>
+                <p class="cart1"><a href="<?php e(url('/shop/basket')); ?>"><img src="<?php e(url('/images/cart1.gif')); ?>" alt="Indkøbskurv" width="25" height="18" /> <span>Indkøbskurv</span></a></p>
                 <!--
                 <div class="totals">
                     <p class="qty">5 vare(r) i kurven</p>

@@ -971,3 +971,6 @@ p.warn2 b{
 .orderright li.last{
 	margin:18px 0 6px;
 }
+.basket-empty {
+	padding:1em;
+}
