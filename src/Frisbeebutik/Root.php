@@ -4,7 +4,8 @@ class Frisbeebutik_Root extends k_Dispatcher
     public $map = array('shop'               => 'Frisbeebutik_Controller_Shop',
                         'handelsbetingelser' => 'Frisbeebutik_Controller_Handelsbetingelser',
                         'kontakt'            => 'Frisbeebutik_Controller_Kontakt',
-                        'help'               => 'Frisbeebutik_Controller_Help');
+                        'help'               => 'Frisbeebutik_Controller_Help',
+    					'frontpage'            => 'Frisbeebutik_Controller_Index');
     public $debug = true;
     public $i18n = array(
         'basket' => 'Indkøbskurv'
@@ -37,7 +38,7 @@ class Frisbeebutik_Root extends k_Dispatcher
 
     public function execute()
     {
-        throw new k_http_Redirect($this->url('shop'));
+        throw new k_http_Redirect($this->url('frontpage'));
     }
 
     public function __($phrase)
