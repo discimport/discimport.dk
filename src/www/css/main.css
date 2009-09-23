@@ -1084,3 +1084,9 @@ div#buyer_details_save {
     border: 2px solid #999;
 }
 /* Order */
+
+
+.error-message {
+	margin: 2em;
+	color: red;
+}
