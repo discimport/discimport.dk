@@ -41,6 +41,6 @@
                     <p class="back"><a href="<?php e(url('../products')); ?>">Tilbage</a></p>
                     <p class="out"><a href="<?php e(url('details')); ?>">Til Kassen&nbsp;&nbsp;&nbsp;</a></p>
                     <div class="update">
-                        <input type="submit" name="updatebutton"  value="Opdatér kurv" />
+                        <input type="submit" name="update"  value="Opdatér kurv" />
                     </div>
                 </form>

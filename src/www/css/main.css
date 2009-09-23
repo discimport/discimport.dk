@@ -974,3 +974,113 @@ p.warn2 b{
 .basket-empty {
 	padding:1em;
 }
+
+/* buyer details */
+fieldset.details-customer {
+    background-color: #EEEEEE;
+    margin-bottom: 20px;
+    overflow:hidden;
+}
+* html fieldset.details-customer {
+    zoom:1.0
+}
+fieldset.details-customer legend {
+    padding:0 0 0 25px;
+    color:0000666;
+    font-weight:bold
+}
+* html fieldset.details-customer legend {
+    position:relative;
+    top:-10px
+}
+*+html fieldset.details-customer legend {
+    position:relative;
+    top:-9px
+}
+fieldset.details-customer p {
+    margin:10px 25px;
+    color:0000666;
+    font-size:11px
+}
+fieldset.details-customer div.row {
+    padding: 4px;
+    border-bottom: 1px solid #ddd;
+    overflow:hidden;
+}
+fieldset.details-customer div.row label {
+    display: block;
+    float: left;
+    width: 150px;
+}
+#details-newsletter input {
+    float:left;
+    margin:0 0 0 75px;
+    clear:both;
+}
+#details-newsletter div {
+    border-bottom: 1px solid #ddd;
+    width:100%;
+    overflow:hidden
+}
+#details-newsletter label {
+    float:left;
+    margin:-3px 0 0 15px;
+    clear:none;
+    width:auto;
+    padding:0 0 10px
+}
+#details-customer-comment {
+    padding:4px 4px 4px 25px;
+    font-size:11px;
+    border-bottom: 1px solid #ddd;
+}
+#details-customer-comment legend {
+    font-size:13px;
+    padding:0;
+}
+* html #details-customer-comment legend {
+    top:-13px
+}
+*+ html #details-customer-comment legend {
+    top:-13px
+}
+div#buyer-details div.row input {
+}
+fieldset.details-customer div.row textarea {
+}
+div#customer-coupon {
+    padding: 3px;
+    background-color: #EEEEEE;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+div#customer-ean {
+    padding: 3px;
+    background-color: #EEEEEE;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+div#customer-comment {
+    padding: 3px;
+    background-color: #EEEEEE;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+fieldset#details-customer-comment textarea {
+    width: 80%;
+    height: 60px;
+}
+div#terms-of-trade {
+    margin: 10px 0px 10px;
+    padding: 3px;
+    background-color: #EEEEEE;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+div#buyer_details_save {
+    margin: 10px 0px 10px;
+    padding: 5px;
+    background-color: #EEEE00;
+    border: 2px solid #999;
+}
+/* Order */
