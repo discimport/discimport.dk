@@ -1,134 +1,499 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Frisbee's Til Sport Og Leg</title>
-<link href="css/reset.css" rel="stylesheet" media="screen, projection" type="text/css" />
-<link href="css/main.css" rel="stylesheet" media="screen, projection" type="text/css" />
-<link href="css/print.css" rel="stylesheet" media="print" type="text/css" />
-<!--[if lte IE 7]>
-<link href="css/iecss.css" rel="stylesheet"  media="screen,projection" type="text/css" />
-<![endif]-->
-<!--[if IE 8]>
-<link href="css/ie8.css" rel="stylesheet"  media="screen,projection" type="text/css" />
-<![endif]-->
-</head>
-<body id="product" class="detaljer">
-<div id="outer">
-	<h1><a href="#">Frisbee's Til Sport Og Leg<em></em></a></h1>
-	<p class="logo"><a href="#"><img src="images/logo.jpg" alt="Discimport.dk" width="169" height="169" /></a></p>
-	<!-- start main columns -->
-	<div class="main cols2">
-		<!-- #content is main right column -->
-		<div id="content">
-			<div class="breadcrumb2">
-				<h2>Indkøbskurv</h2>
-				<ul>
-					<li><strong>1.Kurv  &gt; </strong></li>
-					<li><strong>2.Detaljer &gt;</strong></li>
-					<li>3.Ordre &gt;</li>
-					<li>4.Betaling &gt;</li>
-					<li>5.Kvittering</li>
-				</ul>
-			</div>
-			<form  method="post" action="">
-				<div class="details">
-					<div class="detleft">
-						<fieldset>
-						<legend><span>Detaljer</span></legend>
-						<div>
-							<label for="navn">navn<b>*</b></label>
-							<input type="text" name="navn" id="navn" value="Morten Skytte" />
-						</div>
-						<div>
-							<label for="kontactperson">kontactperson</label>
-							<input type="text" name="kontactperson" id="kontactperson" />
-						</div>
-						<div>
-							<label for="address1">adresse<b>*</b></label>
-							<span class="controls">
-							<input class="mb15" type="text" name="address1" id="address1" value="Bispebjerg Torv 14" />
-							<input  type="text" name="address2" id="address2" value="stuen" />
-							</span></div>
-						<div>
-							<label for="postnummer">postnummer<b class="warn">*</b></label>
-							<input type="text" name="postnummer" id="postnummer" />
-						</div>
-						<div>
-							<label for="by">by<b>*</b></label>
-							<input type="text" name="by" id="by" value="København" />
-						</div>
-						<div>
-							<label for="land">land<b>*</b></label>
-							<input type="text" name="land" id="land" value="Danmark" />
-						</div>
-						<div>
-							<label for="email">email<b>*</b></label>
-							<input type="text" name="email" id="email" value="skytte@me.com" />
-						</div>
-						<div>
-							<label for="telefon">telefon<b>*</b></label>
-							<input type="text" name="telefon" id="telefon" value="+4520989828" />
-						</div>
-						<div class="ean">
-							<label for="ean">EAN nr.</label>
-							<input type="text" name="ean" id="ean" />
-						</div>
-						</fieldset>
-					</div>
-					<!-- end detleft -->
-					<div class="detright">
-						<fieldset>
-						<legend><span>Detaljer - part2</span></legend>
-						<div>
-							<label for="rabatkupon">rabatkupon</label>
-							<input class="common" type="text" name="rabatkupon" id="rabatkupon" value="SF#42bafbx102" />
-						</div>
-						<div class="padout2 checktext">
-							<label for="nyhedsbrev">nyhedsbref</label>
-							<input type="checkbox" name="nyhedsbrev" id="nyhedsbrev" />
-							<span>Ja tak, vil gerne modtage emails</span> </div>
-						<div class="padout padlast">
-							<label for="comment">evt. kommentar<br />
-							til bestillingen..</label>
-							<textarea name="textarea" id="comment" cols="25" rows="3">Findes der evt. et katalog over “Mania”?
-</textarea>
-						</div>
-						</fieldset>
-					</div>
-					<!-- end detright -->
-					<p class="warning"><strong><b>*</b> felter markeret med en &nbsp;<b>*</b> skal udfyldes!</strong></p>
-					<div class="prevnext">
-						<p class="back"><a href="#">TILBAGE</a></p>
-						<p class="out"><a href="#">FORTSÆT</a></p>
-					</div>
-				</div>
-			</form>
-		</div>
-		<!-- end content -->
-		<!-- start left column sidebar -->
-		<div id="sidebar">
-			<form id="form1" method="post" action="">
-				<div class="search">
-					<input class="searchtext" type="text" name="searchtext"  />
-					<input class="searchbutton" type="submit" name="searchbutton"  value="S&oslash;g" />
-				</div>
-			</form>
-			<ul id="nav">
-				<li><a href="forside.htm">Forside</a></li>
-				<li><span>Produkter</span></li>
-				<li><a href="indk.htm">Vis indkøbskurv</a></li>
-				<li><a href="handel.htm">Handelsbetingelser</a></li>
-				<li><a href="kontakt.htm">Kontakt</a></li>
-				<li><a href="help.htm">Hjælp</a></li>
-				<li><a href="discimport.htm">Discimport.dk</a></li>
-			</ul>
-		</div>
-		<!-- end sidebar -->
-		<p class="visa"><a href="#"><img src="images/visa.jpg" alt="Visa credit cards" width="124" height="59" /></a></p>
-	</div>
-	<!-- end main -->
-	<div class="base"></div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="da" lang="da">
+    <head>
+        <title>Details</title>
+        <meta name="verify-v1" content="5sVlwrz5kabk/OZGtea26qVEGzwl+M7PCWLEer2JquM=" >
+        <meta name="Keywords" content="" />
+        <meta name="Description" content="" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="verify-v1" content="upUixQlh700P5wulYcNRxw8ZHjz/cC8CTdrVc2LzrQk=" />
+
+        <!--<link rel="alternate" type="application/rss+xml" title="Discimport.dk: Alle produkter" href="/shop/rss.php" />-->
+        <link href="http://discimport.dk/css/reset.css" rel="stylesheet" media="screen, projection" type="text/css" />
+        <link href="http://www.intraface.dk/demo/shop.css" rel="stylesheet" media="screen, projection" type="text/css" />
+        <link href="http://discimport.dk/css/main.css" rel="stylesheet" media="screen, projection" type="text/css" />
+        <link href="http://discimport.dk/css/print.css" rel="stylesheet" media="print" type="text/css" />
+        <!--[if lte IE 7]>
+        <link href="http://discimport.dk/css/iecss.css" rel="stylesheet"  media="screen,projection" type="text/css" />
+        <![endif]-->
+        <!--[if IE 8]>
+        <link href="http://discimport.dk/css/ie8.css" rel="stylesheet"  media="screen,projection" type="text/css" />
+        <![endif]-->
+    </head>
+
+    <body class="cart">
+    <div id="outer">
+    <h1><a href="http://discimport.dk/">Discimport: Frisbees Til Sport Og Leg<em></em></a></h1>
+    <p class="logo"><a href="#"><img src="http://discimport.dk/images/logo.jpg" alt="Discimport.dk" width="169" height="169" /></a></p>
+    <!-- start main columns -->
+    <div class="main cols3">
+        <!-- #content is main right column -->
+        <div id="content">
+
+            <div id="middle">
+    <div class="breadcrumb2">
+        <h2>Detaljer</h2>
+
+
+    <ul>
+            <li>
+            Kurv        </li>
+            <li class="current">
+
+            Detaljer        </li>
+            <li>
+            Ordre        </li>
+            <li>
+            Betaling        </li>
+            <li>
+            Kvittering        </li>
+
+        </ul>
+
 </div>
-</body>
+
+
+<form action="http://discimport.dk/shop/basket/details" method="post" class="forms" id="step1">
+
+
+<fieldset id="details-customer" class="details-customer clearfix">
+    
+    <legend><span>Udfyld information om dig selv</span></legend>
+    
+    <div class="row">
+        <label for="name">Navn</label>
+
+        <input type=text name="name" value="" />
+    </div>
+    
+    <div class="row">
+        <label for="contact_person">Kontaktperson</label>
+        <input type="text" name="contactperson" value="" />
+    </div>
+    
+    <div class="row">
+        <label for="address">Adresse</label>
+
+        <textarea name="address"></textarea>
+    </div>
+
+    
+    <div class="row">
+        <label for="postcode">Postnummer</label>
+        <input type="text" name="postcode" value="" />
+    </div>
+    
+    <div class="row">
+
+        <label for="city">By</label>
+        <input type="text" name="city" value="" />
+    </div>
+
+    <div class="row">
+        <label for="country">Land</label>
+        <select name="country">
+            <option value="">Vælg...</option>
+
+                            <option value="Afghanistan"  >Afghanistan</option>
+                            <option value="Albania"  >Albania</option>
+                            <option value="Algeria"  >Algeria</option>
+                            <option value="American Samoa"  >American Samoa</option>
+                            <option value="Andorra"  >Andorra</option>
+                            <option value="Angola"  >Angola</option>
+
+                            <option value="Anguilla"  >Anguilla</option>
+                            <option value="Antarctica"  >Antarctica</option>
+                            <option value="Antigua and Barbuda"  >Antigua and Barbuda</option>
+                            <option value="Argentina"  >Argentina</option>
+                            <option value="Armenia"  >Armenia</option>
+                            <option value="Aruba"  >Aruba</option>
+
+                            <option value="Australia"  >Australia</option>
+                            <option value="Austria"  >Austria</option>
+                            <option value="Azerbaijan"  >Azerbaijan</option>
+                            <option value="Bahamas"  >Bahamas</option>
+                            <option value="Bahrain"  >Bahrain</option>
+                            <option value="Bangladesh"  >Bangladesh</option>
+
+                            <option value="Barbados"  >Barbados</option>
+                            <option value="Belarus"  >Belarus</option>
+                            <option value="Belgium"  >Belgium</option>
+                            <option value="Belize"  >Belize</option>
+                            <option value="Benin"  >Benin</option>
+                            <option value="Bermuda"  >Bermuda</option>
+
+                            <option value="Bhutan"  >Bhutan</option>
+                            <option value="Bolivia"  >Bolivia</option>
+                            <option value="Bosnia and Herzegovina"  >Bosnia and Herzegovina</option>
+                            <option value="Botswana"  >Botswana</option>
+                            <option value="Bouvet Island"  >Bouvet Island</option>
+                            <option value="Brazil"  >Brazil</option>
+
+                            <option value="British Indian Ocean Territory"  >British Indian Ocean Territory</option>
+                            <option value="Brunei Darussalam"  >Brunei Darussalam</option>
+                            <option value="Bulgaria"  >Bulgaria</option>
+                            <option value="Burkina Faso"  >Burkina Faso</option>
+                            <option value="Burundi"  >Burundi</option>
+                            <option value="Cambodia"  >Cambodia</option>
+
+                            <option value="Cameroon"  >Cameroon</option>
+                            <option value="Canada"  >Canada</option>
+                            <option value="Cape Verde"  >Cape Verde</option>
+                            <option value="Cayman Islands"  >Cayman Islands</option>
+                            <option value="Central African Republic"  >Central African Republic</option>
+                            <option value="Chad"  >Chad</option>
+
+                            <option value="Chile"  >Chile</option>
+                            <option value="China"  >China</option>
+                            <option value="Christmas Island"  >Christmas Island</option>
+                            <option value="Cocos Islands"  >Cocos Islands</option>
+                            <option value="Colombia"  >Colombia</option>
+                            <option value="Comoros"  >Comoros</option>
+
+                            <option value="Congo"  >Congo</option>
+                            <option value="Congo, The Democratic Republic of the"  >Congo, The Democratic Republic of the</option>
+                            <option value="Cook Islands"  >Cook Islands</option>
+                            <option value="Costa Rica"  >Costa Rica</option>
+                            <option value="Croatia"  >Croatia</option>
+                            <option value="Cuba"  >Cuba</option>
+
+                            <option value="Cyprus"  >Cyprus</option>
+                            <option value="Czech Republic"  >Czech Republic</option>
+                            <option value="Cõte d'Ivoire"  >Cõte d'Ivoire</option>
+                            <option value="Denmark"  >Denmark</option>
+                            <option value="Djibouti"  >Djibouti</option>
+                            <option value="Dominica"  >Dominica</option>
+
+                            <option value="Dominican Republic"  >Dominican Republic</option>
+                            <option value="Ecuador"  >Ecuador</option>
+                            <option value="Egypt"  >Egypt</option>
+                            <option value="El Salvador"  >El Salvador</option>
+                            <option value="Equatorial Guinea"  >Equatorial Guinea</option>
+                            <option value="Eritrea"  >Eritrea</option>
+
+                            <option value="Estonia"  >Estonia</option>
+                            <option value="Ethiopia"  >Ethiopia</option>
+                            <option value="Falkland Islands"  >Falkland Islands</option>
+                            <option value="Faroe Islands"  >Faroe Islands</option>
+                            <option value="Fiji"  >Fiji</option>
+                            <option value="Finland"  >Finland</option>
+
+                            <option value="France"  >France</option>
+                            <option value="French Guiana"  >French Guiana</option>
+                            <option value="French Polynesia"  >French Polynesia</option>
+                            <option value="French Southern Territories"  >French Southern Territories</option>
+                            <option value="Gabon"  >Gabon</option>
+                            <option value="Gambia"  >Gambia</option>
+
+                            <option value="Georgia"  >Georgia</option>
+                            <option value="Germany"  >Germany</option>
+                            <option value="Ghana"  >Ghana</option>
+                            <option value="Gibraltar"  >Gibraltar</option>
+                            <option value="Greece"  >Greece</option>
+                            <option value="Greenland"  >Greenland</option>
+
+                            <option value="Grenada"  >Grenada</option>
+                            <option value="Guadeloupe"  >Guadeloupe</option>
+                            <option value="Guam"  >Guam</option>
+                            <option value="Guatemala"  >Guatemala</option>
+                            <option value="Guernsey"  >Guernsey</option>
+                            <option value="Guinea"  >Guinea</option>
+
+                            <option value="Guinea-Bissau"  >Guinea-Bissau</option>
+                            <option value="Guyana"  >Guyana</option>
+                            <option value="Haiti"  >Haiti</option>
+                            <option value="Heard Island and McDonald Islands"  >Heard Island and McDonald Islands</option>
+                            <option value="Holy See"  >Holy See</option>
+                            <option value="Honduras"  >Honduras</option>
+
+                            <option value="Hong Kong"  >Hong Kong</option>
+                            <option value="Hungary"  >Hungary</option>
+                            <option value="Iceland"  >Iceland</option>
+                            <option value="India"  >India</option>
+                            <option value="Indonesia"  >Indonesia</option>
+                            <option value="Iran, Islamic Republic of"  >Iran, Islamic Republic of</option>
+
+                            <option value="Iraq"  >Iraq</option>
+                            <option value="Ireland"  >Ireland</option>
+                            <option value="Isle of Man"  >Isle of Man</option>
+                            <option value="Israel"  >Israel</option>
+                            <option value="Italy"  >Italy</option>
+                            <option value="Jamaica"  >Jamaica</option>
+
+                            <option value="Japan"  >Japan</option>
+                            <option value="Jersey"  >Jersey</option>
+                            <option value="Jordan"  >Jordan</option>
+                            <option value="Kazakhstan"  >Kazakhstan</option>
+                            <option value="Kenya"  >Kenya</option>
+                            <option value="Kiribati"  >Kiribati</option>
+
+                            <option value="Korea, Democratic People's Republic of"  >Korea, Democratic People's Republic of</option>
+                            <option value="Korea, Republic of"  >Korea, Republic of</option>
+                            <option value="Kuwait"  >Kuwait</option>
+                            <option value="Kyrgyzstan"  >Kyrgyzstan</option>
+                            <option value="Lao, People's Democratic Republic"  >Lao, People's Democratic Republic</option>
+                            <option value="Latvia"  >Latvia</option>
+
+                            <option value="Lebanon"  >Lebanon</option>
+                            <option value="Lesotho"  >Lesotho</option>
+                            <option value="Liberia"  >Liberia</option>
+                            <option value="Libyan Arab Jamahiriya"  >Libyan Arab Jamahiriya</option>
+                            <option value="Liechtenstein"  >Liechtenstein</option>
+                            <option value="Lithuania"  >Lithuania</option>
+
+                            <option value="Luxembourg"  >Luxembourg</option>
+                            <option value="Macau"  >Macau</option>
+                            <option value="Macedonia, The Former Yugoslav Republic of"  >Macedonia, The Former Yugoslav Republic of</option>
+                            <option value="Madagascar"  >Madagascar</option>
+                            <option value="Malawi"  >Malawi</option>
+                            <option value="Malaysia"  >Malaysia</option>
+
+                            <option value="Maldives"  >Maldives</option>
+                            <option value="Mali"  >Mali</option>
+                            <option value="Malta"  >Malta</option>
+                            <option value="Marshall Islands"  >Marshall Islands</option>
+                            <option value="Martinique"  >Martinique</option>
+                            <option value="Mauritania"  >Mauritania</option>
+
+                            <option value="Mauritius"  >Mauritius</option>
+                            <option value="Mayotte"  >Mayotte</option>
+                            <option value="Mexico"  >Mexico</option>
+                            <option value="Micronesia, Federated States of"  >Micronesia, Federated States of</option>
+                            <option value="Moldova"  >Moldova</option>
+                            <option value="Monaco"  >Monaco</option>
+
+                            <option value="Mongolia"  >Mongolia</option>
+                            <option value="Montenegro"  >Montenegro</option>
+                            <option value="Montserrat"  >Montserrat</option>
+                            <option value="Morocco"  >Morocco</option>
+                            <option value="Mozambique"  >Mozambique</option>
+                            <option value="Myanmar"  >Myanmar</option>
+
+                            <option value="Namibia"  >Namibia</option>
+                            <option value="Nauru"  >Nauru</option>
+                            <option value="Nepal"  >Nepal</option>
+                            <option value="Netherlands"  >Netherlands</option>
+                            <option value="Netherlands Antilles"  >Netherlands Antilles</option>
+                            <option value="New Caledonia"  >New Caledonia</option>
+
+                            <option value="New Zealand"  >New Zealand</option>
+                            <option value="Nicaragua"  >Nicaragua</option>
+                            <option value="Niger"  >Niger</option>
+                            <option value="Nigeria"  >Nigeria</option>
+                            <option value="Niue"  >Niue</option>
+                            <option value="Norfolk Island"  >Norfolk Island</option>
+
+                            <option value="Northern Mariana Islands"  >Northern Mariana Islands</option>
+                            <option value="Norway"  >Norway</option>
+                            <option value="Oman"  >Oman</option>
+                            <option value="Pakistan"  >Pakistan</option>
+                            <option value="Palau"  >Palau</option>
+                            <option value="Palestinian Territory"  >Palestinian Territory</option>
+
+                            <option value="Panama"  >Panama</option>
+                            <option value="Papua New Guinea"  >Papua New Guinea</option>
+                            <option value="Paraguay"  >Paraguay</option>
+                            <option value="Peru"  >Peru</option>
+                            <option value="Philippines"  >Philippines</option>
+                            <option value="Pitcairn"  >Pitcairn</option>
+
+                            <option value="Poland"  >Poland</option>
+                            <option value="Portugal"  >Portugal</option>
+                            <option value="Puerto Rico"  >Puerto Rico</option>
+                            <option value="Qatar"  >Qatar</option>
+                            <option value="Romania"  >Romania</option>
+                            <option value="Russian Federation"  >Russian Federation</option>
+
+                            <option value="Rwanda"  >Rwanda</option>
+                            <option value="Réunion"  >Réunion</option>
+                            <option value="Saint Barthélemy"  >Saint Barthélemy</option>
+                            <option value="Saint Helena"  >Saint Helena</option>
+                            <option value="Saint Kitts and Nevis"  >Saint Kitts and Nevis</option>
+                            <option value="Saint Lucia"  >Saint Lucia</option>
+
+                            <option value="Saint Martin"  >Saint Martin</option>
+                            <option value="Saint Pierre and Miquelon"  >Saint Pierre and Miquelon</option>
+                            <option value="Saint Vincent and the Grenadines"  >Saint Vincent and the Grenadines</option>
+                            <option value="Samoa"  >Samoa</option>
+                            <option value="San Marino"  >San Marino</option>
+                            <option value="Sao Tome and Principe "  >Sao Tome and Principe </option>
+
+                            <option value="Saudi Arabia"  >Saudi Arabia</option>
+                            <option value="Senegal"  >Senegal</option>
+                            <option value="Serbia"  >Serbia</option>
+                            <option value="Seychelles"  >Seychelles</option>
+                            <option value="Sierra Leone"  >Sierra Leone</option>
+                            <option value="Singapore"  >Singapore</option>
+
+                            <option value="Slovakia"  >Slovakia</option>
+                            <option value="Slovenia"  >Slovenia</option>
+                            <option value="Solomon Islands"  >Solomon Islands</option>
+                            <option value="Somalia"  >Somalia</option>
+                            <option value="South Africa"  >South Africa</option>
+                            <option value="South Georgia and the South Sandwich Islands"  >South Georgia and the South Sandwich Islands</option>
+
+                            <option value="Spain"  >Spain</option>
+                            <option value="Sri Lanka"  >Sri Lanka</option>
+                            <option value="Sudan"  >Sudan</option>
+                            <option value="Suriname"  >Suriname</option>
+                            <option value="Svalbard and Jan Mayen"  >Svalbard and Jan Mayen</option>
+                            <option value="Swaziland"  >Swaziland</option>
+
+                            <option value="Sweden"  >Sweden</option>
+                            <option value="Switzerland"  >Switzerland</option>
+                            <option value="Syrian Arab Republic"  >Syrian Arab Republic</option>
+                            <option value="Taiwan"  >Taiwan</option>
+                            <option value="Tajikistan"  >Tajikistan</option>
+                            <option value="Tanzania, United Republic of"  >Tanzania, United Republic of</option>
+
+                            <option value="Thailand"  >Thailand</option>
+                            <option value="Timor-Leste"  >Timor-Leste</option>
+                            <option value="Togo"  >Togo</option>
+                            <option value="Tokelau"  >Tokelau</option>
+                            <option value="Tonga"  >Tonga</option>
+                            <option value="Trinidad and Tobago"  >Trinidad and Tobago</option>
+
+                            <option value="Tunisia"  >Tunisia</option>
+                            <option value="Turkey"  >Turkey</option>
+                            <option value="Turkmenistan"  >Turkmenistan</option>
+                            <option value="Turks and Caicos Islands"  >Turks and Caicos Islands</option>
+                            <option value="Tuvalu"  >Tuvalu</option>
+                            <option value="Uganda"  >Uganda</option>
+
+                            <option value="Ukraine"  >Ukraine</option>
+                            <option value="United Arab Emirates"  >United Arab Emirates</option>
+                            <option value="United Kingdom"  >United Kingdom</option>
+                            <option value="United States"  >United States</option>
+                            <option value="United States Minor Outlying Islands"  >United States Minor Outlying Islands</option>
+                            <option value="Uruguay"  >Uruguay</option>
+
+                            <option value="Uzbekistan"  >Uzbekistan</option>
+                            <option value="Vanuatu"  >Vanuatu</option>
+                            <option value="Venezuela"  >Venezuela</option>
+                            <option value="Viet Nam"  >Viet Nam</option>
+                            <option value="Virgin Islands, British"  >Virgin Islands, British</option>
+                            <option value="Virgin Islands, U.S."  >Virgin Islands, U.S.</option>
+
+                            <option value="Wallis and Futuna"  >Wallis and Futuna</option>
+                            <option value="Western Sahara"  >Western Sahara</option>
+                            <option value="Yemen"  >Yemen</option>
+                            <option value="Zambia"  >Zambia</option>
+                            <option value="Zimbabwe"  >Zimbabwe</option>
+                            <option value="Åland Islands"  >Åland Islands</option>
+
+                        
+        </select>
+    </div>    
+    
+    <div class="row">
+        <label for="email">E-mail</label>
+        <input type="text" name="email" value="" />
+    </div>
+    
+    <div class="row">
+        <label for="phone">Telefon</label>
+
+        <input type="text" name="phone" value="" />
+    </div>
+    
+</fieldset>
+    <fieldset id="details-payment-method" class="details-customer">
+        <legend>Betalingsmetode</legend>
+        <p>Vælg hvordan du vil betale for din ordre.</p>
+        <ul>
+                            <li><input id="payment-onlinepayment" type="radio" name="payment_method" value="OnlinePayment"  /> <label for="payment-onlinepayment"><strong>Onlinepayment</strong> </label></li>
+
+                            <li><input id="payment-ean" type="radio" name="payment_method" value="EAN"  /> <label for="payment-ean"><strong>EAN</strong> </label></li>
+                    </ul>
+    </fieldset>
+
+<fieldset id="details-customer-coupon" class="details-customer">
+    <legend>Rabatkupon</legend>
+    <p>Hvis du har en rabatkupon, kan du udfylde følgende felt.</p>
+
+    <div class="row">
+        <label for="customer_coupon">Rabatkupon</label>
+        <input type="text" name="customer_coupon" id="customer_coupon" value="" />
+    </div>
+</fieldset><fieldset id="details-newsletter" class="details-customer">
+    <legend>Nyhedsbrev</legend>
+    
+    <p>Vil du skrives op til nyhedsbrevet?</p>
+    <div>
+
+        <input type="checkbox" name="customer_newsletter" id="customer_newsletter" " />
+        <label for="customer_newsletter">Ja, jeg vil gerne skrives op til nyhedsbrevet</label>
+    </div>
+</fieldset>
+<fieldset id="details-customer-comment" class="details-customer">
+    <legend>Kommentarer</legend>
+
+    Dine kommentarer:<br/>
+    <textarea name="customer_comment"></textarea>
+
+</fieldset>
+
+<div id="purchase-buttons">
+            <p id="purchase-back"><a href="http://discimport.dk/shop/basket">Tilbage</a>
+                     <p id="purchase-continue"><input name="send" value="Fortsæt" type="submit" /></p>
+    </div>
+
+</form>
+</div>
+
+            <div id="sidebar2">
+                <h4 class="nyheder">Nyheder</h4>
+
+
+                <ul class="discs">
+                    <li>Funktion kommer snart</li>
+                    <!--
+                    <li><a href="#"><img src="images/img72x72-1.jpg" alt="disc 1" width="72" height="72" />DKK 70,00</a></li>
+                    <li><a href="#"><img src="images/img72x72-2.jpg" alt="disc 2" width="72" height="72" />DKK 70,00</a></li>
+                    <li><a href="#"><img src="images/img72x72-3.jpg" alt="disc 3" width="72" height="72" />DKK 65,00</a></li>
+                    <li><a href="#"><img src="images/img72x72-4.jpg" alt="disc 4" width="72" height="72" />DKK 65,00</a></li>
+                    <li><a href="#"><img src="images/img72x72-3.jpg" alt="disc 5" width="72" height="72" />DKK 65,00</a></li>
+                    -->
+                </ul>
+            </div>
+        </div>
+        <!-- end content -->
+
+        <!-- start left column sidebar -->
+        <div id="sidebar">
+            <form id="form1" method="get" action="http://discimport.dk/shop/products">
+                <div class="search">
+                    <input class="searchtext" type="text" name="q"  />
+                    <input class="searchbutton" type="submit" name="searchbutton"  value="Søg" />
+                </div>
+            </form>
+            <ul id="nav">
+
+                <!-- use classs=current if you want this to remain a link <li class="current"><a href="forside.htm">Forside</a></li>-->
+                    <li><a href="http://discimport.dk/">Forside</a></li>
+                    <li><a href="http://discimport.dk/shop/products">Produkter</a></li>
+                    <li><a href="http://discimport.dk/shop/catalogue">Kategorier</a></li>
+                    <li><a href="http://discimport.dk/shop/basket">Vis indkøbskurv</a></li>
+                    <li><a href="http://discimport.dk/handelsbetingelser">Handelsbetingelser</a></li>
+
+                    <li><a href="http://discimport.dk/kontakt">Kontakt</a></li>
+                    <li><a href="http://discimport.dk/help">Hjælp</a></li>
+            </ul>
+        </div>
+        <!-- end sidebar -->
+    </div>
+    <!-- end main -->
+    <div class="base"></div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4137633-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+    </body>
 </html>
