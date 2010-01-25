@@ -2,10 +2,12 @@
 class Frisbeebutik_Root extends k_Dispatcher
 {
     public $map = array('shop'               => 'Frisbeebutik_Controller_Shop',
-                        'handelsbetingelser' => 'Frisbeebutik_Controller_Handelsbetingelser',
-                        'kontakt'            => 'Frisbeebutik_Controller_Kontakt',
-                        'help'               => 'Frisbeebutik_Controller_Help',
-    					'frontpage'            => 'Frisbeebutik_Controller_Index');
+                        //'handelsbetingelser' => 'Frisbeebutik_Controller_Handelsbetingelser',
+                        //'kontakt'            => 'Frisbeebutik_Controller_Kontakt',
+                        //'help'               => 'Frisbeebutik_Controller_Help',
+    					'frontpage'          => 'Frisbeebutik_Controller_Index',
+                        //'cms'                => 'IntrafacePublic_CMS_Controller_Index'
+    );
     public $debug = true;
     public $i18n = array(
         'basket' => 'Indkøbskurv'
@@ -25,6 +27,7 @@ class Frisbeebutik_Root extends k_Dispatcher
 
     function forward($name)
     {
+        /*
         if ($name == 'kontakt' OR $name == 'help' OR $name == 'handelsbetingelser') {
             $class = $this->map[$name];
             $next = new $class($this, $name);
@@ -33,6 +36,25 @@ class Frisbeebutik_Root extends k_Dispatcher
             $this->document->main_class = 'cols3';
             return $this->render('Frisbeebutik/templates/shop-sidebar.tpl.php', array('content' => $content));
         }
+        */
+        if (!isset($this->map[$name])) {
+            $page = $this->getCMS()->getPage($name);
+
+            if (!empty($page['http_header_status']) AND $page['http_header_status'] == 'HTTP/1.0 404 Not Found') {
+                throw new k_http_Response(404);
+            }
+
+            $html = new IntrafacePublic_CMS_HTML_Parser($page);
+            $sections = $html->getSection('body');
+
+            $out = '';
+
+            foreach ($sections['elements'] as $element) {
+                $out .= $element['html'];
+            }
+            return '<div style="padding: 1em;">' . $out . '</div>';
+        }
+
         return parent::forward($name);
     }
 
@@ -89,8 +111,19 @@ class Frisbeebutik_Root extends k_Dispatcher
         return $this->registry->get('onlinepayment:authorize');
     }
 
+    public function getCMS()
+    {
+        return $this->registry->get('cms');
+    }
+
     public function getBreadcrumpTrail()
     {
         return array(array('name' => 'Shop', 'url' => $this->url('shop')));
+    }
+
+    public function getNewProducts()
+    {
+        $news_id = 265;
+        return $this->getShop()->getProductsWithKeywordId($news_id);
     }
 }

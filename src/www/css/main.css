@@ -464,6 +464,7 @@ h4.nyheder{
 	font-size:12px;
 	text-align:center;
 }
+
 ul.discs{
 	width:166px;
 	padding:10px 0;
@@ -1089,4 +1090,9 @@ div#buyer_details_save {
 .error-message {
 	margin: 2em;
 	color: red;
+}
+
+
+ul.discs li img {
+	border: 0px;
 }

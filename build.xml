@@ -4,8 +4,8 @@
     <taskdef classname="phing.tasks.ext.IlibPearDeployerTask" name="peardeploy" />
 
     <property name="package-name" value="${phing.project.name}" />
-    <property name="version" value="0.6.5" />
-    <property name="stability" value="beta" />
+    <property name="version" value="0.8.0" />
+    <property name="stability" value="stable" />
     <property name="pear.channel" value="public.intraface.dk" />
 
     <property name="source.dir" value="." />
@@ -34,8 +34,10 @@
             </filterchain>
             <fileset dir="${build.dir}/temp">
                 <include name="**" />
-                <exclude name="www/*.htm" />
+            	<exclude name="www/cache_*" />
+            	<exclude name="www/*.htm" />
                 <exclude name="www/config.local.php" />
+            	<exclude name="www/blog/*.*" />
             </fileset>
         </copy>
     </target>
@@ -55,20 +57,11 @@
             <stability release="${stability}" api="${stability}" />
             <dirroles key="www">www</dirroles>
             <release>
-                <install as="cache_b0c5a7b712706847fe378dc39121788e_281630bc51e6ee70d00ae66d242b06ba" name="www/cache_b0c5a7b712706847fe378dc39121788e_281630bc51e6ee70d00ae66d242b06ba" />
-                <install as="cache_b0c5a7b712706847fe378dc39121788e_4e3e37330cfc05aa871fbc66c8d5bbc4" name="www/cache_b0c5a7b712706847fe378dc39121788e_4e3e37330cfc05aa871fbc66c8d5bbc4" />
-                <install as="cache_b0c5a7b712706847fe378dc39121788e_ce226d995589083bfd24156750f6a8d5" name="www/cache_b0c5a7b712706847fe378dc39121788e_ce226d995589083bfd24156750f6a8d5" />
-                <install as="cart.htm" name="www/cart.htm" />
                 <install as="config.example.php" name="www/config.example.php" />
-                <install as="config.local.php" name="www/config.local.php" />
                 <install as="css/ie8.css" name="www/css/ie8.css" />
                 <install as="css/iecss.css" name="www/css/iecss.css" />
                 <install as="css/main.css" name="www/css/main.css" />
                 <install as="css/reset.css" name="www/css/reset.css" />
-                <install as="detaljer.htm" name="www/detaljer.htm" />
-                <install as="error.log" name="www/error.log" />
-                <install as="forside.htm" name="www/forside.htm" />
-                <install as="images/Thumbs.db" name="www/images/Thumbs.db" />
                 <install as="images/arrow11x10.gif" name="www/images/arrow11x10.gif" />
                 <install as="images/arrow3x5.gif" name="www/images/arrow3x5.gif" />
                 <install as="images/base2.gif" name="www/images/base2.gif" />
@@ -115,23 +108,18 @@
                 <install as="images/logo.jpg" name="www/images/logo.jpg" />
                 <install as="images/visa.jpg" name="www/images/visa.jpg" />
                 <install as="index.php" name="www/index.php" />
-                <install as="kategor-1.htm" name="www/kategor-1.htm" />
-                <install as="kategor-2.htm" name="www/kategor-2.htm" />
                 <install as="layout.css" name="www/layout.css" />
                 <install as="mobil/index.php" name="www/mobil/index.php" />
                 <install as="mobil/vis_ordre.php" name="www/mobil/vis_ordre.php" />
-                <install as="order.htm" name="www/order.htm" />
-                <install as="product-oversigt.htm" name="www/product-oversigt.htm" />
-                <install as="product-side.htm" name="www/product-side.htm" />
                 <install as="top.jpg" name="www/top.jpg" />
             </release>
             <dependencies>
                 <php minimum_version="5.2.0" />
                 <pear minimum_version="1.6.0" recommended_version="1.6.1" />
                 <package name="IntrafacePublic_Shop_Client_XMLRPC" channel="public.intraface.dk" recommended_version="" minimum_version="0.3.0" />
-                <package name="IntrafacePublic_Shop_Controller" channel="public.intraface.dk" recommended_version="" minimum_version="0.5.0" />
-                <package name="IntrafacePublic_Shop_Translation" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.4" />
-                <package name="IntrafacePublic_Shop" channel="public.intraface.dk" recommended_version="" minimum_version="0.3.0" />
+                <package name="IntrafacePublic_Shop_Controller" channel="public.intraface.dk" recommended_version="" minimum_version="1.0.4" />
+                <package name="IntrafacePublic_Shop_Translation" channel="public.intraface.dk" recommended_version="" minimum_version="1.0.0" />
+                <package name="IntrafacePublic_Shop" channel="public.intraface.dk" recommended_version="" minimum_version="0.5.1" />
                 <package name="Ilib_ClassLoader" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.0" />
                 <package name="IntrafacePublic_OnlinePayment" channel="public.intraface.dk" recommended_version="" minimum_version="0.0.1" />
                 <package name="IntrafacePublic_OnlinePayment_Client_XMLRPC" channel="public.intraface.dk" recommended_version="" minimum_version="0.0.1" />
@@ -143,7 +131,7 @@
                 <package name="ErrorHandler" channel="public.intraface.dk" recommended_version="" minimum_version="0.2.5" />
                 <package name="Log" channel="pear.php.net" recommended_version="" minimum_version="1.11.4" />
             </dependencies>
-            <notes>* New design</notes>
+            <notes>* Additional improvements</notes>
         </d51pearpkg2>
     </target>
 

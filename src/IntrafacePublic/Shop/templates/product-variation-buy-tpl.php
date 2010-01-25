@@ -17,6 +17,10 @@
         </div>
     <?php endforeach; ?>
 
+	<?php if (!empty($this->GET['message'])): ?>
+		<p class="shop-sold-out" style="padding: 0.5em 1em; color: red;"><?php e($this->GET['message']); ?></p>
+	<?php endif; ?>
+
     <?php if(isset($variation)): ?>
         <?php if($variation === false): ?>
             <?php e(__('The selected variation does not exist. Please select another.')); ?>

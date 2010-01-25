@@ -26,15 +26,12 @@ class Frisbeebutik_Controller_Handelsbetingelser extends k_Controller
 
 <ul>
     <li>Bankoverførsel</li>
+    <li>Dankort og visakort</li>
 </ul>
 
-<!--
-Data du sender i forbindelse med køb betalt med betalingskort er krypterede (SSL), og det er søledes kun PBS, der kan løse dem. Hverken stormagasinet eller andre har mulighed for at løse dataene.
+<p>Data du sender i forbindelse med køb betalt med betalingskort er krypterede (SSL), og det er således kun PBS, der kan læse dem. Hverken stormagasinet eller andre har mulighed for at læse dataene.</p>
 
-Betales med betalingskort er du altid sikret mod misbrug. Du har nemlig mulighed for at afvise en betaling, nør du modtager din betalingsoversigt. Du har ingen selvrisiko i tilfølde af, at dit kort bliver misbrugt i en internetbutik, der benytter SSL (Secure Socket Layer) i sit betalingssystem. Dermed er du bedre sikret end i den fysiske verden, hvor du har en selvrisiko pø 1.200,- kr. nør dit Dankort misbruges ved brug af pin-koden.
-
-Beløbet for varerne trøkkes først, nør varerne sendes fra stormagasinet. Der kan aldrig trøkkes et større beløb, end det du har godkendt ved købet.
--->
+<p>Beløbet for varerne trækkes først, når varerne sendes. Der kan aldrig trækkes et større beløb, end det du har godkendt ved købet.</p>
 
 <h3>Levering</h3>
 <p>Discimport.dk sender med PostDanmark over hele Danmark (eksl. Grønland og Færøerne).</p>

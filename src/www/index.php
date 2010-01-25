@@ -28,11 +28,21 @@ $application->registry->registerConstructor('shop', create_function(
   '
 ));
 
+$application->registry->registerConstructor('cms', create_function(
+  '$className, $args, $registry',
+  '$credentials["private_key"] = $GLOBALS["intraface_private_key"];
+   $credentials["session_id"] = md5($registry->session->getSessionId());
+   $cms_id = 37;
+   $client = new IntrafacePublic_CMS_Client_XMLRPC($credentials, $cms_id, false);
+   return new IntrafacePublic_CMS($client, $registry->get("cache"));
+  '
+));
+
 $application->registry->registerConstructor('cache', create_function(
   '$className, $args, $registry',
   '
    $options = array(
-       "cacheDir" => dirname(__FILE__) . "/",
+       "cacheDir" => $GLOBALS["cache_dir"],
        "lifeTime" => 3600
    );
    return new Cache_Lite($options);'
