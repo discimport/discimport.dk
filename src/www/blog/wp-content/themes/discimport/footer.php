@@ -6,11 +6,6 @@
 ?>
 
 
-<p><a href="<?php bloginfo('rss2_url'); ?>">Entries (RSS)</a>
-		and <a href="<?php bloginfo('comments_rss2_url'); ?>">Comments (RSS)</a>.
-</p>
- </div>
-
         <!-- end content -->
         <!-- start left column sidebar -->
         <div id="sidebar">

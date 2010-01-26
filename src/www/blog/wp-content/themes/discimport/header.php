@@ -17,6 +17,7 @@
         <link href="http://www.intraface.dk/demo/shop.css" rel="stylesheet" media="screen, projection" type="text/css" />
         <link href="/css/main.css" rel="stylesheet" media="screen, projection" type="text/css" />
         <link href="/css/print.css" rel="stylesheet" media="print" type="text/css" />
+        <link href="/css/blog.css" rel="stylesheet" media="screen, projection" type="text/css" />
         <!--[if lte IE 7]>
         <link href="/css/iecss.css" rel="stylesheet"  media="screen,projection" type="text/css" />
         <![endif]-->
@@ -34,5 +35,3 @@
     <p class="logo"><a href="#"><img src="/images/logo.jpg" alt="<?php bloginfo('description'); ?>" width="169" height="169" /></a></p>
     <!-- start main columns -->
     <div class="main">
-        <!-- #content is main right column -->
-        <div id="content">

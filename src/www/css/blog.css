@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* blog css amendments */
+.blog #content h2 {
+	font-size:16px;
+	margin:20px 0 5px;
+	text-transform:capitalize;
+	padding:0 20px;
+}
+.blog #content small{
+	font-size:11px;
+	font-weight:bold;
+	display:block;
+	padding:0 20px 2px;
+}
+.blog #content .entry p{
+	margin:0 20px 10px 0;	
+	padding:0 20px;
+}
+.blog #content p{
+	padding:0 20px;
+}
+.blog #content p.postmetadata{
+	font-size:11px;
+	font-weight:bold;
+	padding:0 20px;
+}
+.blog #content .postmetadata a{font-weight:normal}
+.blog #content  a:hover{text-decoration:underline}
+.blog #content .entry img{border:2px solid #000;margin:2px 0 10px}
+/* meta*/
+.blog #searchform{
+	background:#f2f2f2;
+	width:167px;
+	border-bottom:1px solid #d0d0d0;	
+	padding:0 0 3px;
+	font-size:11px;
+	margin:-10px 0 5px -15px;
+	position:relative;
+}
+.blog #searchform input#s{
+	overflow:visible;
+	width:96px;
+	border:1px solid #ccc;
+	border-top:2px solid #8d8d8d;
+	border-bottom:1px solid #e3e3e3;
+	padding:2px 5px;
+	font-size:11px;
+	margin:4px 0 0 4px;
+}
+.blog #searchform input#searchsubmit{
+	width:46px;
+	padding:0 5px;
+	font-size:11px;
+}
+.blog #searchform label{
+	padding:4px 0 2px 5px;
+	display:block;
+	font-weight:bold;
+}
+/* main navigation */
+.blog #sidebar ul{
+	width:146px;
+	color:#333;
+	font-size:12px;
+	margin:11px 0 0 14px;
+}
+.blog #sidebar ul ul{margin:0}
+.blog #sidebar li, 
+.blog #sidebar li a, 
+.blog #sidebar li a:visited,
+.blog #sidebar li span{
+	display:block;
+	width:146px;
+	color:#333;
+}
+.blog #sidebar li{margin:0 0 10px}
+.blog #sidebar li a:hover,
+.blog #sidebar li span,
+.blog #sidebar li.current a{color:#09c!important;}
+.blog #sidebar li span,
+.blog #sidebar li.current a{font-weight:bold}
+
+.blog #sidebar li h2{
+	margin:10px 0 5px -10px;
+	position:relative;
+	color:#09c;
+	z-index:99;
+}
+* html .blog #sidebar li h2{zoom:1.0;margin-top:-10px}
+
+
+
