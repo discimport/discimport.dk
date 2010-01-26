@@ -121,7 +121,9 @@
                 <package name="IntrafacePublic_Shop_Translation" channel="public.intraface.dk" recommended_version="" minimum_version="1.0.0" />
                 <package name="IntrafacePublic_Shop" channel="public.intraface.dk" recommended_version="" minimum_version="0.5.1" />
                 <package name="Ilib_ClassLoader" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.0" />
-                <package name="IntrafacePublic_OnlinePayment" channel="public.intraface.dk" recommended_version="" minimum_version="0.0.1" />
+                <package name="IntrafacePublic_CMS_Client_XMLRPC" channel="public.intraface.dk" recommended_version="" minimum_version="1.0.5" />
+                <package name="IntrafacePublic_CMS" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.7" />
+            	<package name="IntrafacePublic_OnlinePayment" channel="public.intraface.dk" recommended_version="" minimum_version="0.0.1" />
                 <package name="IntrafacePublic_OnlinePayment_Client_XMLRPC" channel="public.intraface.dk" recommended_version="" minimum_version="0.0.1" />
                 <package name="IntrafacePublic_OnlinePayment_Controller" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.5" />
                 <package name="IntrafacePublic_Newsletter_Client_XMLRPC" channel="public.intraface.dk" recommended_version="" minimum_version="0.1.0" />

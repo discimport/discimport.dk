@@ -1092,7 +1092,11 @@ div#buyer_details_save {
 	color: red;
 }
 
-
 ul.discs li img {
 	border: 0px;
 }
+
+.pricebox p.price span{width:auto}
+.breadcrumb a:after{content:" \003e"}
+* html .breadcrumb a{border-right:1px solid #000;padding-right:5px;position:relative;}
+*+html .breadcrumb a{border-right:1px solid #000;padding-right:5px;position:relative;}

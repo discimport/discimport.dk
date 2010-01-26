@@ -23,7 +23,7 @@ $application->registry->registerConstructor('shop', create_function(
   '$credentials["private_key"] = $GLOBALS["intraface_private_key"];
    $credentials["session_id"] = md5($registry->session->getSessionId());
    $shop_id = $GLOBALS["intraface_shop_id"];
-   $client = new IntrafacePublic_Shop_Client_XMLRPC($credentials, $shop_id, false);
+   $client = new IntrafacePublic_Shop_Client_XMLRPC($credentials, $shop_id, false, "http://discimportsession:hyTdKpPVQNFFI2R4FjJSDV1HLegGA3SHrtD1y9DdMZBcShXniy5@intraface.dk/webservice/xmlrpc/shop");
    return new IntrafacePublic_Shop($client, $registry->get("cache"));
   '
 ));
