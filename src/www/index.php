@@ -23,7 +23,8 @@ $application->registry->registerConstructor('shop', create_function(
   '$credentials["private_key"] = $GLOBALS["intraface_private_key"];
    $credentials["session_id"] = md5($registry->session->getSessionId());
    $shop_id = $GLOBALS["intraface_shop_id"];
-   $client = new IntrafacePublic_Shop_Client_XMLRPC($credentials, $shop_id, false, "http://discimportsession:hyTdKpPVQNFFI2R4FjJSDV1HLegGA3SHrtD1y9DdMZBcShXniy5@intraface.dk/webservice/xmlrpc/shop");
+   $debug = false;
+   $client = new IntrafacePublic_Shop_Client_XMLRPC($credentials, $shop_id, $debug, "http://discimportsession:hyTdKpPVQNFFI2R4FjJSDV1HLegGA3SHrtD1y9DdMZBcShXniy5@intraface.dk/webservice/xmlrpc/shop");
    return new IntrafacePublic_Shop($client, $registry->get("cache"));
   '
 ));
@@ -75,9 +76,9 @@ $application->registry->registerConstructor('onlinepayment:authorize', create_fu
 try {
     $application->dispatch();
 } catch (Exception $e) {
+    echo $e->getMessage();
     $errorhandler = new ErrorHandler;
     $errorhandler->addObserver(new ErrorHandler_Observer_File($GLOBALS["error_log"]));
     $errorhandler->handleException($e);
 
-    echo $e;
 }
