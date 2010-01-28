@@ -157,23 +157,23 @@ ul.breadcrumb li a:hover{color:#09c}
 /* Kategory pages css */
 ul.cat{
 	width:924px;
-	margin:11px 0 20px 9px;
+	margin:11px 0 20px 11px;
 	overflow:hidden;
 	font-family:"Trebuchet MS", sans-serif;
 }
 ul.cat li{
-	width:147px;
-	height:172px;
+	width:176px;
+	height:152px;
 	overflow:hidden;
 	float:left;
-	margin:0 7px 8px 0;
+	margin:0 8px 8px 0;
 }
 ul.cat li a{
 	display:block;
 	border:1px solid #e5e5e5;
-	width:145px;
-	height:170px;
-	background:url(../images/catbg2.gif) repeat-x 0 -170px;
+	width:174px;
+	height:150px;
+	background:url(../images/catbg.jpg) repeat-x 0 -150px;
 	text-align:center;
 	color:#000;
 	text-transform:uppercase;
@@ -182,7 +182,7 @@ ul.cat li a{
 	letter-spacing:-.04em;
 	line-height:1;
 }
-ul.cat li img{margin:0 0 2px}
+ul.cat li img{margin:0 auto 2px}
 ul.cat li a:hover,ul.cat li.current a{
 	background-position:0 0;
 	color:#fff;
