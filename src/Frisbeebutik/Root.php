@@ -6,7 +6,8 @@ class Frisbeebutik_Root extends k_Dispatcher
                         //'kontakt'            => 'Frisbeebutik_Controller_Kontakt',
                         //'help'               => 'Frisbeebutik_Controller_Help',
     					'frontpage'          => 'Frisbeebutik_Controller_Index',
-                        //'cms'                => 'IntrafacePublic_CMS_Controller_Index'
+                        //'cms'                => 'IntrafacePublic_CMS_Controller_Index',
+                        'newsletter'         => 'IntrafacePublic_Newsletter_Controller_Index'
     );
     public $debug = true;
     public $i18n = array(
@@ -19,8 +20,8 @@ class Frisbeebutik_Root extends k_Dispatcher
         $this->document->template = dirname(__FILE__) . '/templates/main-tpl.php';
         $this->document->title = 'Discimport.dk';
         $this->document->company_name = 'Discimport.dk I/S';
-        $this->document->keywords = 'frisbee, golfdisc, ultimate, disc golf, danmark, sport, freestyle, skoleidrï¿½t, frisbeesalg, frisbeekï¿½b, frisbeegolf, kï¿½b, salg, flying disc';
-        $this->document->description = 'Online salg af, frisbee, golfdisc og udstyr til discgolf og ultimate. Danmarks stï¿½rste udvalg til frisbeegolf og ultimatefrisbee';
+        $this->document->keywords = 'frisbee, golfdisc, ultimate, disc golf, danmark, sport, freestyle, skoleidræt, frisbeesalg, frisbeekøb, frisbeegolf, køb, salg, flying disc';
+        $this->document->description = 'Online salg af, frisbee, golfdisc og udstyr til discgolf og ultimate. Danmarks største udvalg til frisbeegolf og ultimatefrisbee';
         $this->document->body_class = '';
         $this->document->main_class = '';
     }
@@ -37,6 +38,11 @@ class Frisbeebutik_Root extends k_Dispatcher
             return $this->render('Frisbeebutik/templates/shop-sidebar.tpl.php', array('content' => $content));
         }
         */
+
+        if ($name == 'newsletter') {
+            return '<div style="padding: 1em;">' . parent::forward($name) . '</div>';
+        }
+
         if (!isset($this->map[$name])) {
             $page = $this->getCMS()->getPage($name);
 

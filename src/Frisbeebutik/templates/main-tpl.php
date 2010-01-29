@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="da" lang="da">
     <head>
         <title><?php e($this->document->title); ?></title>
-        <meta name="verify-v1" content="5sVlwrz5kabk/OZGtea26qVEGzwl+M7PCWLEer2JquM=" >
+        <meta name="verify-v1" content="5sVlwrz5kabk/OZGtea26qVEGzwl+M7PCWLEer2JquM=" />
         <meta name="Keywords" content="<?php e($this->document->keywords); ?>" />
         <meta name="Description" content="<?php e($this->document->description); ?>" />
         <meta http-equiv="Content-Type" content="text/html; charset=<?php e($this->document->encoding); ?>" />
@@ -65,6 +65,6 @@ try {
 var pageTracker = _gat._getTracker("UA-4137633-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>
-
+</div>
     </body>
 </html>
