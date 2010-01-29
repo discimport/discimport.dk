@@ -1017,6 +1017,7 @@ fieldset.details-customer div.row label {
     float:left;
     margin:0 0 0 75px;
     clear:both;
+		display:inline;
 }
 #details-newsletter div {
     border-bottom: 1px solid #ddd;
@@ -1028,7 +1029,8 @@ fieldset.details-customer div.row label {
     margin:-3px 0 0 15px;
     clear:none;
     width:auto;
-    padding:0 0 10px
+    padding:0 0 10px;
+		display:inline;
 }
 #details-customer-comment {
     padding:4px 4px 4px 25px;
@@ -1100,3 +1102,20 @@ ul.discs li img {
 .breadcrumb a:after{content:" \003e"}
 * html .breadcrumb a{border-right:1px solid #000;padding-right:5px;position:relative;}
 *+html .breadcrumb a{border-right:1px solid #000;padding-right:5px;position:relative;}
+
+/* newsletter css */
+.newsletter h1{
+	float:none;
+	width:auto;
+	margin:10px 0 20px;
+	height:auto;
+}
+.newsletter .details-customer{width:500px}
+.newsletter .details-customer .rowtop{padding-top:20px!important;}
+* html .newsletter .details-customer .rowtop{padding-top:10px!important;}
+* html .newsletter label{display:inline!important}
+.newsletter .details-customer legend{font-size:11px}
+* html .newsletter .details-customer legend {top:-7px}
+*+html .newsletter .details-customer legend {top:-7px}
+
+
