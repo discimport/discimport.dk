@@ -1,8 +1,5 @@
 <?php
 require_once 'config.local.php';
-
-set_include_path($GLOBALS['path_include']);
-
 require_once 'k.php';
 require_once 'Ilib/ClassLoader.php';
 
@@ -80,5 +77,4 @@ try {
     $errorhandler = new ErrorHandler;
     $errorhandler->addObserver(new ErrorHandler_Observer_File($GLOBALS["error_log"]));
     $errorhandler->handleException($e);
-
 }
