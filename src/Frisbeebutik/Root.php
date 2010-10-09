@@ -2,11 +2,7 @@
 class Frisbeebutik_Root extends k_Dispatcher
 {
     public $map = array('shop'               => 'Frisbeebutik_Controller_Shop',
-                        //'handelsbetingelser' => 'Frisbeebutik_Controller_Handelsbetingelser',
-                        //'kontakt'            => 'Frisbeebutik_Controller_Kontakt',
-                        //'help'               => 'Frisbeebutik_Controller_Help',
     					'frontpage'          => 'Frisbeebutik_Controller_Index',
-                        //'cms'                => 'IntrafacePublic_CMS_Controller_Index',
                         'newsletter'         => 'IntrafacePublic_Newsletter_Controller_Index'
     );
     public $debug = true;
@@ -28,17 +24,6 @@ class Frisbeebutik_Root extends k_Dispatcher
 
     function forward($name)
     {
-        /*
-        if ($name == 'kontakt' OR $name == 'help' OR $name == 'handelsbetingelser') {
-            $class = $this->map[$name];
-            $next = new $class($this, $name);
-            $content = '<div style="padding: 1em;">'  . $next->handleRequest() . '</div>';
-            $this->document->body_class = 'side';
-            $this->document->main_class = 'cols3';
-            return $this->render('Frisbeebutik/templates/shop-sidebar.tpl.php', array('content' => $content));
-        }
-        */
-
         if ($name == 'newsletter') {
             return '<div style="padding: 1em;">' . parent::forward($name) . '</div>';
         }

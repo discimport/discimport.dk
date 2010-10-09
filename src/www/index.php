@@ -4,23 +4,13 @@ require_once 'k.php';
 require_once 'Ilib/ClassLoader.php';
 
 $application = new Frisbeebutik_Root();
-/*
-$application->registry->registerConstructor('shop', create_function(
-  '$className, $args, $registry',
-  '$credentials["private_key"] = $GLOBALS["intraface_private_key"];
-   $credentials["session_id"] = md5($registry->session->getSessionId());
-   $debug = false;
-   $client = new IntrafacePublic_Shop_Client_XMLRPC2($credentials, $GLOBALS["intraface_shop_id"], $debug);
-   return new IntrafacePublic_Shop($client, $registry->get("cache"));
-  '
-));
-*/
+
 $application->registry->registerConstructor('shop', create_function(
   '$className, $args, $registry',
   '$credentials["private_key"] = $GLOBALS["intraface_private_key"];
    $credentials["session_id"] = md5($registry->session->getSessionId());
    $shop_id = $GLOBALS["intraface_shop_id"];
-   $debug = false;
+   $debug = true;
    $client = new IntrafacePublic_Shop_Client_XMLRPC($credentials, $shop_id, $debug, "http://discimportsession:hyTdKpPVQNFFI2R4FjJSDV1HLegGA3SHrtD1y9DdMZBcShXniy5@intraface.dk/webservice/xmlrpc/shop");
    return new IntrafacePublic_Shop($client, $registry->get("cache"));
   '
