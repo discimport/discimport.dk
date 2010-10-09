@@ -11,7 +11,7 @@ $application->registry->registerConstructor('shop', create_function(
    $credentials["session_id"] = md5($registry->session->getSessionId());
    $shop_id = $GLOBALS["intraface_shop_id"];
    $debug = true;
-   $client = new IntrafacePublic_Shop_Client_XMLRPC($credentials, $shop_id, $debug, "http://discimportsession:hyTdKpPVQNFFI2R4FjJSDV1HLegGA3SHrtD1y9DdMZBcShXniy5@intraface.dk/webservice/xmlrpc/shop");
+   $client = new IntrafacePublic_Shop_Client_XMLRPC($credentials, $shop_id, $debug, "http://".md5($registry->session->getSessionId()).":'.$GLOBALS['intraface_private_key'].'@intraface.dk/webservice/xmlrpc/shop");
    return new IntrafacePublic_Shop($client, $registry->get("cache"));
   '
 ));
