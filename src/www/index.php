@@ -10,7 +10,7 @@ $application->registry->registerConstructor('shop', create_function(
   '$credentials["private_key"] = $GLOBALS["intraface_private_key"];
    $credentials["session_id"] = md5($registry->session->getSessionId());
    $shop_id = $GLOBALS["intraface_shop_id"];
-   $debug = true;
+   $debug = false;
    $client = new IntrafacePublic_Shop_Client_XMLRPC($credentials, $shop_id, $debug, "http://".md5($registry->session->getSessionId()).":'.$GLOBALS['intraface_private_key'].'@intraface.dk/webservice/xmlrpc/shop");
    return new IntrafacePublic_Shop($client, $registry->get("cache"));
   '
