@@ -19,12 +19,11 @@
 
     <target name="prepare">
         <delete dir="${build.dir}" />
-        <mkdir dir="${build.dir}" />
     </target>
 
     <target name="export">
-        <echo msg="Exporting SVN files" />
-        <exec command="svn export ${source.dir}/src ${build.dir}/temp" />
+        <echo msg="Cloning git repository" />
+        <exec command="git clone git://github.com/lsolesen/discimport.dk.git ${build.dir}" />
         <mkdir dir="${build.dir}/package/${package-name}-${version}" />
         <copy todir="${build.dir}/package/${package-name}-${version}">
             <filterchain>
@@ -32,7 +31,7 @@
                     <token key="VERSION" value="${version}" />
                 </replacetokens>
             </filterchain>
-            <fileset dir="${build.dir}/temp">
+            <fileset dir="${build.dir}/src">
                 <include name="**" />
             	<exclude name="www/cache_*" />
             	<exclude name="www/*.htm" />
@@ -48,7 +47,7 @@
             <summary>frisbeebutik.dk</summary>
             <channel>${pear.channel}</channel>
             <description>
-                Installs frisbeebutik
+                Source files for discimport.dk
             </description>
             <lead user="lsolesen" name="Lars Olesen" email="lars@legestue.net" />
             <lead user="sune.t.jensen" name="Sune Jensen" email="sj@sunet.dk" />
@@ -107,11 +106,6 @@
                 <install as="images/inputbg3.jpg" name="www/images/inputbg3.jpg" />
                 <install as="images/logo.jpg" name="www/images/logo.jpg" />
                 <install as="images/visa.jpg" name="www/images/visa.jpg" />
-                <install as="index.php" name="www/index.php" />
-                <install as="layout.css" name="www/layout.css" />
-                <install as="mobil/index.php" name="www/mobil/index.php" />
-                <install as="mobil/vis_ordre.php" name="www/mobil/vis_ordre.php" />
-                <install as="top.jpg" name="www/top.jpg" />
             </release>
             <dependencies>
                 <php minimum_version="5.2.0" />
