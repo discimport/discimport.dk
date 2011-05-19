@@ -7,6 +7,8 @@
         <meta name="Description" content="<?php e($this->document->description); ?>" />
         <meta http-equiv="Content-Type" content="text/html; charset=<?php e($this->document->encoding); ?>" />
         <meta name="verify-v1" content="upUixQlh700P5wulYcNRxw8ZHjz/cC8CTdrVc2LzrQk=" />
+        <link rel="shortcut icon" href="<?php e(url('favicon.ico')); ?>" type="image/vnd.microsoft.icon" />
+
         <!--<link rel="alternate" type="application/rss+xml" title="Discimport.dk: Alle produkter" href="/shop/rss.php" />-->
         <link href="<?php e(url('/css/reset.css')); ?>" rel="stylesheet" media="screen, projection" type="text/css" />
         <link href="<?php e('http://www.intraface.dk/demo/shop.css'); ?>" rel="stylesheet" media="screen, projection" type="text/css" />
