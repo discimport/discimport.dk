@@ -23,7 +23,7 @@
 
     <target name="export">
         <echo msg="Cloning git repository" />
-        <exec command="git clone git://github.com/lsolesen/discimport.dk.git ${build.dir}" />
+        <exec command="git clone git://github.com/discimport/discimport.dk.git ${build.dir}" />
         <mkdir dir="${build.dir}/package/${package-name}-${version}" />
         <copy todir="${build.dir}/package/${package-name}-${version}">
             <filterchain>
