@@ -25,7 +25,7 @@
     <body class="<?php e($this->document->body_class); ?>">
     <div id="outer">
     <h1><a href="<?php e(url('/')); ?>">Discimport: Frisbees Til Sport Og Leg<em></em></a></h1>
-    <p class="logo"><a href="#"><img src="<?php e(url('/images/logo.jpg')); ?>" alt="Discimport.dk" width="169" height="169" /></a></p>
+    <p class="logo"><a href="<?php e(url('/')); ?>"><img src="<?php e(url('/images/logo.jpg')); ?>" alt="Discimport.dk" width="169" height="169" /></a></p>
     <!-- start main columns -->
     <div class="main <?php e($this->document->main_class); ?>">
         <!-- #content is main right column -->
