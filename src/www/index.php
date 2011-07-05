@@ -2,6 +2,7 @@
 require_once 'config.local.php';
 require_once 'k.php';
 require_once 'Ilib/ClassLoader.php';
+require_once 'MCAPI.class.php';
 
 $application = new Frisbeebutik_Root();
 
@@ -38,10 +39,8 @@ $application->registry->registerConstructor('cache', create_function(
 
 $application->registry->registerConstructor('newsletter', create_function(
   '$className, $args, $registry',
-  '$credentials["private_key"] = $GLOBALS["intraface_private_key"];
-   $credentials["session_id"] = md5($registry->session->getSessionId());
-   return new IntrafacePublic_Newsletter_Client_XMLRPC($credentials, 25, false);
-  '
+  '$mailchimp = new MCAPI($GLOBALS["mailchimp_key"]); 
+   return new Frisbeebutik_Newsletter($mailchimp, $GLOBALS["mailchimp_list_id"]);'
 ));
 
 $application->registry->registerConstructor('onlinepayment', create_function(
