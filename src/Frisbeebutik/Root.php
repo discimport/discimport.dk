@@ -1,9 +1,10 @@
 <?php
 class Frisbeebutik_Root extends k_Dispatcher
 {
-    public $map = array('shop'               => 'Frisbeebutik_Controller_Shop',
-    					'frontpage'          => 'Frisbeebutik_Controller_Index',
-                        'newsletter'         => 'IntrafacePublic_Newsletter_Controller_Index'
+    public $map = array(
+        'shop'       => 'Frisbeebutik_Controller_Shop',
+    	'frontpage'  => 'Frisbeebutik_Controller_Index',
+        'newsletter' => 'Frisbeebutik_Controller_Newsletter'
     );
     public $debug = true;
     public $i18n = array(
@@ -24,10 +25,6 @@ class Frisbeebutik_Root extends k_Dispatcher
 
     function forward($name)
     {
-        if ($name == 'newsletter') {
-            return '<div style="padding: 1em;">' . parent::forward($name) . '</div>';
-        }
-
         if (!isset($this->map[$name])) {
             $page = $this->getCMS()->getPage($name);
 
