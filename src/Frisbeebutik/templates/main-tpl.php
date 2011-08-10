@@ -49,7 +49,7 @@
                     <li><a href="<?php e(url('/shop/basket')); ?>">Vis indkøbskurv</a></li>
                     <li><a href="<?php e(url('/handelsbetingelser')); ?>">Handelsbetingelser</a></li>
                     <li><a href="<?php e(url('/kontakt')); ?>">Kontakt</a></li>
-                    <li><a href="<?php e(url('/help')); ?>">Hjælp</a></li>
+                    <li><a href="<?php e(url('/nyhedsbrev')); ?>">Nyhedsbrev</a></li>             <li><a href="<?php e(url('/help')); ?>">Hjælp</a></li>
                     <li><a href="<?php e(url('/blog')); ?>">Blog</a></li>
             </ul>
         </div>

@@ -4,6 +4,7 @@ class Frisbeebutik_Root extends k_Dispatcher
     public $map = array(
         'shop'       => 'Frisbeebutik_Controller_Shop',
     	'frontpage'  => 'Frisbeebutik_Controller_Index',
+        'nyhedsbrev' => 'Frisbeebutik_Controller_Newsletter',
         'newsletter' => 'Frisbeebutik_Controller_Newsletter'
     );
     public $debug = true;
